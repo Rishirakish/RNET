@@ -1,0 +1,3 @@
+C:\Dev\RNET\RNET\RNetworks\RNetworks.WebAPI\bin\System.Net.Http.Formatting.dll
+C:\Dev\RNET\RNET\RNetworks\RNetworks.WebAPI\bin\System.Web.Helpers.dll
+C:\Dev\RNET\RNET\RNetworks\RNetworks.WebAPI\bin\System.Web.Razor.xml
