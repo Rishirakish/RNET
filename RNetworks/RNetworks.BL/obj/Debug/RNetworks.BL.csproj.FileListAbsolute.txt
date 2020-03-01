@@ -1,0 +1,5 @@
+C:\Dev\RNET\RNET\RNetworks\RNetworks.BL\bin\Debug\RNetworks.BL.dll
+C:\Dev\RNET\RNET\RNetworks\RNetworks.BL\bin\Debug\RNetworks.BL.pdb
+C:\Dev\RNET\RNET\RNetworks\RNetworks.BL\obj\Debug\RNetworks.BL.csprojResolveAssemblyReference.cache
+C:\Dev\RNET\RNET\RNetworks\RNetworks.BL\obj\Debug\RNetworks.BL.dll
+C:\Dev\RNET\RNET\RNetworks\RNetworks.BL\obj\Debug\RNetworks.BL.pdb

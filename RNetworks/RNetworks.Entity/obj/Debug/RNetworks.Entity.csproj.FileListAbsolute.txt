@@ -1,0 +1,4 @@
+C:\Dev\RNET\RNET\RNetworks\RNetworks.Entity\bin\Debug\RNetworks.Entity.dll
+C:\Dev\RNET\RNET\RNetworks\RNetworks.Entity\bin\Debug\RNetworks.Entity.pdb
+C:\Dev\RNET\RNET\RNetworks\RNetworks.Entity\obj\Debug\RNetworks.Entity.dll
+C:\Dev\RNET\RNET\RNetworks\RNetworks.Entity\obj\Debug\RNetworks.Entity.pdb
