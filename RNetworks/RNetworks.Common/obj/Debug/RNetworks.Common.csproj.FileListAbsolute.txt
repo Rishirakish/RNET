@@ -1,5 +1,0 @@
-C:\Dev\RNET\RNET\RNetworks\RNetworks.Common\bin\Debug\RNetworks.Common.dll
-C:\Dev\RNET\RNET\RNetworks\RNetworks.Common\bin\Debug\RNetworks.Common.pdb
-C:\Dev\RNET\RNET\RNetworks\RNetworks.Common\obj\Debug\RNetworks.Common.csprojResolveAssemblyReference.cache
-C:\Dev\RNET\RNET\RNetworks\RNetworks.Common\obj\Debug\RNetworks.Common.dll
-C:\Dev\RNET\RNET\RNetworks\RNetworks.Common\obj\Debug\RNetworks.Common.pdb
