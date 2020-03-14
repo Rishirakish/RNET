@@ -1,5 +1,0 @@
-C:\Dev\RNET\RNET\RNetworks\RNetworks.DAL\bin\Debug\RNetworks.DAL.dll
-C:\Dev\RNET\RNET\RNetworks\RNetworks.DAL\bin\Debug\RNetworks.DAL.pdb
-C:\Dev\RNET\RNET\RNetworks\RNetworks.DAL\obj\Debug\RNetworks.DAL.csprojResolveAssemblyReference.cache
-C:\Dev\RNET\RNET\RNetworks\RNetworks.DAL\obj\Debug\RNetworks.DAL.dll
-C:\Dev\RNET\RNET\RNetworks\RNetworks.DAL\obj\Debug\RNetworks.DAL.pdb
