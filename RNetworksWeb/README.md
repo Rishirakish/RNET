@@ -53,11 +53,3 @@ The logic for your reducers (aka Redux logic) will all be contained with `/src/r
 [Official Redux Documentation](https://redux.js.org/)
 
 [Official Redux-Saga Documentation](https://redux-saga.js.org/)
-
-## For any updates to the repo, please visit the changelog
-
-Located [here](https://github.com/mmajdanski/cra-redux-saga-template/blob/master/CHANGELOG.md).
-
-## Something Missing or Incorrect?
-
-File an issue [here](https://github.com/mmajdanski/cra-redux-saga-template/issues).
