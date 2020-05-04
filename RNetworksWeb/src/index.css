@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url(../src/static/images/lab.jpg);
+  font-family: 'Ubuntu Condensed', sans-serif !important;
+  background-size: cover;
 }
