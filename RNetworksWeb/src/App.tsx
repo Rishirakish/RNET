@@ -11,7 +11,7 @@ function Routes() {
     <div>
       {/* <Route exact={true} path="/" component={Login} /> */}
     
-      <Route path='/admin' component={LabSearch}/>
+      <Route path='/' component={LabSearch}/>
     </div>
   );
 }
