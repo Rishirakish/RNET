@@ -4,14 +4,20 @@ import { Route, RouteComponentProps, Router } from "react-router-dom";
 import { history } from "./redux/configureStore";
 import IAppState from "./stores/common/state";
 import LabSearch from "./containers/lab_search";
+// import Dashboard from "./containers/dashboard/dashboard";
+// import "bootstrap/dist/css/bootstrap.css";
+// import "assets/scss/now-ui-dashboard.scss?v1.2.0";
+// import "assets/css/demo.css";
+// import './App.scss';
 
 
 function Routes() {
   return (
     <div>
       {/* <Route exact={true} path="/" component={Login} /> */}
-    
-      <Route path='/' component={LabSearch}/>
+
+      <Route path="/" component={LabSearch} />
+      {/* <Route path="/dashboard" component={Dashboard} /> */}
     </div>
   );
 }
@@ -25,7 +31,7 @@ function App(props?: Props) {
 
   return (
     <Router history={history}>
-      <div >
+      <div>
         <div>
           <Routes />
         </div>
@@ -35,8 +41,7 @@ function App(props?: Props) {
 }
 
 function mapStateToProps(state: IAppState) {
-	return {
-	};
+  return {};
 }
 
 export default connect(mapStateToProps)(App);
