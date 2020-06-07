@@ -14,6 +14,8 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 //import logo from "./../../static/images/logo.jfif";
 import "./index.css";
+import { ILoginState } from "../../stores/auth/type";
+import { Redirect } from "react-router";
 
 const onChange = (currentNode: any, selectedNodes: any) => {
   console.log("onChange::", selectedNodes[0]);
@@ -130,12 +132,14 @@ export default function LabSearch() {
   );
 }
 
-// export function mapStateToProps(state: IAppState) {
+// export function mapStateToProps(state: IAppState):ILoginState {
 //   console.log(state);
 //   //initErrorMessage(state.authState);
+//   return state.authState
 // }
 
 // export function mapDispatchToProps(dispatch: any) {
+
 //   return {};
 // }
 

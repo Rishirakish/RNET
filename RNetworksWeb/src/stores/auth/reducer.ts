@@ -18,14 +18,14 @@ export function loginReducer(
 		case APP_LOGIN_SUCCESS:
 			return {
 				...state,
-				loggedIn: action.payload.success,
+				//loggedIn: action.payload.success,
 				...action.payload,
 			};
 		case APP_LOGIN_FAILED:
 			return {
 				...state,
-				loggedIn: false,
-				code: "APPLICATION_ENCOUNTERED_AN_ERROR",
+				//loggedIn: false,
+				//code: "APPLICATION_ENCOUNTERED_AN_ERROR",
 				...action.payload,
 			};
 		case APP_LOGOUT:

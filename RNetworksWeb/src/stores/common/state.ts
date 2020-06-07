@@ -11,5 +11,7 @@ export interface CommonState {
 export default interface IAppState {
 	authState: ILoginState;
 	settings:any;
+	router: any
+
 
 }

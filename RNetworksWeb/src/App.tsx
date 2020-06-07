@@ -1,46 +1,40 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { Route, RouteComponentProps, Router } from "react-router-dom";
-import { history } from "./redux/configureStore";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
+
+//import PrivateRoute from "./hoc/privateRoute";
 import IAppState from "./stores/common/state";
+import SignIn from "./components/signin";
+import TestPlan from "./components/testplan";
 import LabSearch from "./containers/lab_search";
-// import Dashboard from "./containers/dashboard/dashboard";
-// import "bootstrap/dist/css/bootstrap.css";
-// import "assets/scss/now-ui-dashboard.scss?v1.2.0";
-// import "assets/css/demo.css";
-// import './App.scss';
+import Dashboard from "./containers/dashboard";
+
+import "bootstrap/dist/css/bootstrap.css";
+import "./assets/scss/now-ui-dashboard.scss?v1.2.0";
+ import "./assets/css/demo.css";
 
 
-function Routes() {
-  return (
-    <div>
-      {/* <Route exact={true} path="/" component={Login} /> */}
-
-      <Route path="/" component={LabSearch} />
-      {/* <Route path="/dashboard" component={Dashboard} /> */}
-    </div>
-  );
-}
-
-interface Props extends RouteComponentProps<void> {}
-
-function App(props?: Props) {
-  if (!props) {
-    return null;
-  }
+function App(props: any) {
+  const { match, location } = props;
+  const isRoot = location.pathname === '/' ? true : false;
+    if (isRoot) {
+      return ( <Redirect to={'/login'}/> );
+    }
 
   return (
-    <Router history={history}>
-      <div>
-        <div>
-          <Routes />
-        </div>
-      </div>
-    </Router>
+    <>
+      <Route exact path={`${match.url}login`} component={SignIn} />
+      <Route exact path={`${match.url}plan`} component={TestPlan} />
+      <Route exact path={`${match.url}dashboard/lab`} component={LabSearch} />
+      <Route exact path={`${match.url}dashboard`} component={Dashboard} />
+
+    </>
   );
 }
 
 function mapStateToProps(state: IAppState) {
+  console.log("App State = " + JSON.stringify(state));
+
   return {};
 }
 
