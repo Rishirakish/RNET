@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function signUp() {
   const classes = useStyles();
 
   return ( 
@@ -63,7 +63,7 @@ export default function SignIn() {
             &nbsp;&nbsp;Testing and Calibration Laboratory
           </Typography>
           <Button href="#" color="primary" variant="outlined" className={classes.link} style={{ marginLeft: "auto", color: "white" }}>
-            Sign up
+            Sign In
           </Button>
         </Toolbar>
       </AppBar>  
@@ -75,12 +75,23 @@ export default function SignIn() {
        <Container component="main" maxWidth="xs" className={classes.form} style={{ backgroundColor: "White"}} >
       <CssBaseline />
       <br/>
-        <Avatar className={classes.avatar} src={logo} style={{ marginLeft: "35%" }}>
+       {/*  <Avatar className={classes.avatar} src={logo} style={{ marginLeft: "35%" }}>
         </Avatar>
         <Typography component="h1" variant="h5" style={{ marginLeft: "40%" }}>
           Sign in
-        </Typography>
+        </Typography> */}
         <form className={classes.form} noValidate>
+        <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="userName"
+            label="User Name"
+            name="userName"
+            autoComplete="userName"
+            autoFocus
+          />
           <TextField
             variant="outlined"
             margin="normal"
@@ -101,12 +112,46 @@ export default function SignIn() {
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete="password"
           />
-          <FormControlLabel
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="confirmPassword"
+            label="Confirm Password"
+            type="confirmPassword"
+            id="confirmPassword"
+            autoComplete="confirmPassword"
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="companyName"
+            label="Company Name"
+            id="companyName"
+            autoComplete="companyName"
+          />
+
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="companyAddress"
+            label="Company Address"
+            id="companyAddress"
+            autoComplete="companyAddress"
+            multiline
+            rowsMax={3}
+          />
+          {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
-          />
+          /> */}
           <Button
             type="submit"
             fullWidth
@@ -114,22 +159,10 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Sign up for T&C Labs
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item style={{marginBottom: 30}}>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-          <div style={{ fontSize: "11px" }}>
-            By clicking “Sign in for T&C Labs”, you agree to our&nbsp;
+              <div style={{ fontSize: "11px" }}>
+            By clicking “Sign up for T&C Labs”, you agree to our&nbsp;
               <Link href="#">
                Terms of Service 
               </Link>
