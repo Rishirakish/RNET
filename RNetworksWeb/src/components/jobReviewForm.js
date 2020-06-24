@@ -9,7 +9,7 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import logo from "../static/images/logo.jfif";
-import TestPlanList from './testplanList';
+import TestPlanList from './jobReviewSampleList';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function TestPlan() {
+export default function jobReviewForm() {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -76,77 +76,115 @@ export default function TestPlan() {
       <Grid container item xs={12} spacing={3} className={classes.container}>
         
       <Grid item xs={12} sm={12}>
-          <Typography variant='h6'>JOB.S. NO: 1234 </Typography>
+          <Typography variant='h6'>Job Serial No: QWERTASDFG </Typography>
         </Grid>
         <Grid container spacing={1} border={1}>
           <Grid item xs={12} sm={3}>
             <TextField
               required
-              id="sampleType"
-              name="sampleType"
-              label="Sample Type"
+              id="departmentSendingSample"
+              name="departmentSendingSample"
+              label="Department Sending Sample:"
               fullWidth
-              autoComplete="Sample Type"
+              autoComplete="departmentSendingSample"
               variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={9}>
             <TextField
               required
-              id="sampleDetails"
-              name="sampleDetails"
-              label="Sample Details"
+              id="customerNameAndAddress"
+              name="customerNameAndAddress"
+              label="Customer Name and Address:"
               fullWidth
-              autoComplete="Sample Details"
+              autoComplete="customerNameAndAddress"
+              variant="outlined"
+              multiline
+              rowsMax={3}
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            {/* <TextField
+              required
+              id="receivedOn"
+              name="receivedOn"
+              label="Received On:"
+              fullWidth
+              autoComplete="received On:"
+              variant="outlined"
+              type="date"
+            /> */}
+             <TextField
+                id="receivedOn"
+                name="receivedOn"
+                label="Received On:"
+                type="date"
+                defaultValue="2017-05-24"
+                fullWidth
+                autoComplete="received On:"
+                variant="outlined"
+            />
+
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="jobOrderNo"
+              name="jobOrderNo"
+              label="Job Order No. / Ref No:"
+              fullWidth
+              autoComplete="jobOrderNo"
               variant="outlined"
             />
           </Grid>
           <Grid item xs={12} sm={3}>
             <TextField
               required
-              id="dateOfTp"
-              name="dateOfTp"
-              label="Date of TP"
+              id="responsibleAuthority"
+              name="responsibleAuthority"
+              label="Responsible Authority:"
               fullWidth
-              autoComplete="dateOfTp"
+              autoComplete="Responsible Authority"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="requestForTestingOf"
+              name="requestForTestingOf"
+              label="Sub: Request for testing of:"
+              fullWidth
+              autoComplete="requestForTestingOf"
+              variant="outlined"              
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="testReportReleaseDate"
+              name="testReportReleaseDate"
+              label="Test Report Release Date:"
+              fullWidth
+              autoComplete="testReportReleaseDate"
               type="date"
               defaultValue="2017-05-24"
               variant="outlined"
             />
-          </Grid>
-          <Grid item xs={12} sm={3}>
+            </Grid>
+            <Grid item xs={12} sm={9}>
             <TextField
               required
-              id="jobCode"
-              name="jobCode"
-              label="Job Code No:"
+              id="anyOtherSpecificRequirement"
+              name="anyOtherSpecificRequirement"
+              label="Any other specific requirement:"
               fullWidth
-              autoComplete="jobCode"
+              autoComplete="anyOtherSpecificRequirement"
               variant="outlined"
+              multiline
+              rowsMax={3}
             />
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <TextField
-              required
-              id="sampleID"
-              name="sampleID"
-              label="Sample ID:"
-              fullWidth
-              autoComplete="sampleID"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <TextField
-              required
-              id="sampleNo"
-              name="sampleNo"
-              label="Sample No:"
-              fullWidth
-              autoComplete="sampleNo"
-              variant="outlined"
-            />
-          </Grid>
+            </Grid>
         </Grid>
        {/* <Grid item xs={12} >
           <TextField
@@ -213,6 +251,12 @@ export default function TestPlan() {
       </Grid>
       <br/>
       <TestPlanList name="testPlanList" />
+      <ul>
+              <li>Customer requirements have been completely reviewed, and lab is capable of accepting the order.</li>
+              <li>In case of any ambiguity, the conflicting requirements are marked above in red and further clarification may be sought from the customer, or the job may be refused.</li>
+              
+        </ul>
+"
     </React.Fragment>
   );
 }
