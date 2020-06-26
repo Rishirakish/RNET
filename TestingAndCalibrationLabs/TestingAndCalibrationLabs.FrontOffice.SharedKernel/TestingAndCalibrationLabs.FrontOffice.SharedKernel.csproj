@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>TestingAndCalibrationLabs.FrontOffice.SharedKernel</RootNamespace>
+    <AssemblyName>TestingAndCalibrationLabs.FrontOffice.SharedKernel</AssemblyName>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>TestingAndCalibrationLabs.FrontOffice.Infrastructure</RootNamespace>
+    <AssemblyName>TestingAndCalibrationLabs.FrontOffice.Infrastructure</AssemblyName>
+  </PropertyGroup>
+
+</Project>
