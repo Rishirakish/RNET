@@ -1,34 +1,38 @@
 //import './App.css';
 
-import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import SignIn from './components/signin';
-import SignUp from './components/signUp';
-import TestPlan from './components/testplan';
-import JobReviewForm from './components/jobReviewForm';
+import Container from "@material-ui/core/Container";
+import Link from "@material-ui/core/Link";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import JobReviewForm from "./components/jobReviewForm";
+import SignUp from "./components/signUp";
+import TestPlan from "./containers/testplan/index";
+import SignIn from "./containers/auth/login";
+import LabSearch from "./containers/lab_search";
+import Dashboard from "./containers/dashboard"
 
 function App() {
-  const global = React.createContext('globals');
-  return (<global.Provider value="123"><Router>
-    
-    <div className="App">
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Switch>
-            <Route exact path='/' component={SignIn} />            
-            <Route path="/signUp" component={SignUp} />
-            <Route path="/testplan" component={TestPlan} />
-            <Route path="/jobReviewForm" component={JobReviewForm} />
-          </Switch>
+  const global = React.createContext("globals");
+  return (
+    <global.Provider value="123">
+      <Router>
+        <div className="App">
+          <div className="auth-wrapper">
+            <div className="auth-inner">
+              <Switch>
+                <Route exact path="/signin" component={SignIn} />
+                <Route path="/signUp" component={SignUp} />
+                <Route path="/testplan" component={TestPlan} />
+                <Route path="/jobReviewForm" component={JobReviewForm} />
+                <Route path="/search" component={LabSearch} />
+                <Route path="/dashboard" component={Dashboard}/>
+              </Switch>
+            </div>
+          </div>
         </div>
-      </div>      
-    </div></Router>
-   
-    </global.Provider>
+      </Router>
     
+    </global.Provider>
   );
 }
 

@@ -8,7 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
-import logo from "../static/images/logo.jfif";
+import logo from "../static/images/logo.png";
 import TestPlanList from './jobReviewSampleList';
 
 const useStyles = makeStyles((theme) => ({
@@ -53,6 +53,7 @@ export default function JobReviewForm() {
   const classes = useStyles();
   return (
     <React.Fragment>
+    
       <AppBar position="static" color="default" elevation={0} className={classes.appBar} style={{ backgroundColor: "#24292e" }}>
         <Toolbar className={classes.toolbar}>
         <Avatar className={classes.avatar} src={logo}>

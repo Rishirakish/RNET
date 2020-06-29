@@ -8,8 +8,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
-import logo from "../static/images/logo.jfif";
+import logo from "../static/images/logo.png";
 import TestPlanList from './testplanList';
+import Header from '../../components/header';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,23 +54,7 @@ export default function TestPlan() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <AppBar position="static" color="default" elevation={0} className={classes.appBar} style={{ backgroundColor: "#24292e" }}>
-        <Toolbar className={classes.toolbar}>
-        <Avatar className={classes.avatar} src={logo}>
-        </Avatar>
-          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle} style={{ color: "white" }}>
-            Testing and Calibration Laboratory
-          </Typography>
-          <nav>
-            <Link variant="button" color="textPrimary" href="#" className={classes.link} style={{ color: "white" }}>
-              Last 5 Submissions
-            </Link>
-          </nav>
-          <Button href="#" color="primary" variant="outlined" className={classes.link} style={{ color: "white" }}>
-            Logout
-          </Button>
-        </Toolbar>
-      </AppBar>
+     <Header/>
       <Typography variant="h5" gutterBottom className={classes.title}>
         GLOBAL TESTING & RESEARCH LABORATORY
       </Typography>
@@ -78,7 +63,7 @@ export default function TestPlan() {
       <Grid item xs={12} sm={12}>
           <Typography variant='h6'>JOB.S. NO: 1234 </Typography>
         </Grid>
-        <Grid container spacing={1} border={1}>
+        <Grid container spacing={1} >
           <Grid item xs={12} sm={3}>
             <TextField
               required
@@ -212,7 +197,7 @@ export default function TestPlan() {
         </Grid> */}
       </Grid>
       <br/>
-      <TestPlanList name="testPlanList" />
+      {/* <TestPlanList name="testPlanList" /> */}
     </React.Fragment>
   );
 }

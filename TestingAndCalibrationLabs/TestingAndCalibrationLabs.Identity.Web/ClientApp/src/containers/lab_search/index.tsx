@@ -1,21 +1,13 @@
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import { connect } from "react-redux";
-import IAppState from "../../stores/common/state";
-
 import DropdownTreeSelect from "react-dropdown-tree-select";
 import "react-dropdown-tree-select/dist/styles.css";
+import { NavLink } from "react-router-dom";
+import Header from "../../components/header";
 import data from "./data.json";
-//import "./style.css";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
-//import logo from "./../../static/images/logo.jfif";
 import "./index.css";
-import { ILoginState } from "../../stores/auth/type";
-import { Redirect } from "react-router";
 
 const onChange = (currentNode: any, selectedNodes: any) => {
   console.log("onChange::", selectedNodes[0]);
@@ -85,42 +77,16 @@ export default function LabSearch() {
 
   return (
     <React.Fragment>
-      <AppBar
-        position="static"
-        color="default"
-        elevation={0}
-        className={classes.appBar}
-      >
-        <Toolbar className={classes.toolbar}>
-          {/* <Avatar className={classes.avatar} src={logo}></Avatar> */}
-          <Typography
-            variant="h6"
-            color="inherit"
-            noWrap
-            className={classes.toolbarTitle}
-          >
-            Testing and Calibration Laboratory
-          </Typography>
-          <nav></nav>
-          <Button
-            href="#"
-            color="primary"
-            variant="outlined"
-            className={classes.link}
-          >
-            Logout
-          </Button>
-        </Toolbar>
-      </AppBar>
+      <Header />
+
       <DropdownTreeSelect
         data={data}
         //className="tag-item .search react-dropdown-tree-select .dropdown .dropdown-trigger .dropdown-content"
         onChange={onChange}
         texts={{
           placeholder: "Laboratory Search",
-
         }}
-        showDropdown="always"
+        showDropdown="default"
         // inlineSearchInput={
         //   true
         // }
@@ -128,6 +94,26 @@ export default function LabSearch() {
         // keepChildrenOnSearch={false}
         keepTreeOnSearch={true}
       />
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        style={{ minHeight: "100vh",marginTop:'50px' }}
+      >
+        <Grid item xs={3}>
+          <NavLink to="/testplan" style={{ textDecoration: "none" }}>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
+            </Button>
+          </NavLink>
+        </Grid>
+      </Grid>
     </React.Fragment>
   );
 }

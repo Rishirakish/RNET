@@ -5,7 +5,10 @@ import { AuthService } from "../api/authservice";
 function* login(action: LoginActionType) {
 	try {
 		//yield put({type: SHOW_PROGRESS_BAR});
-		const payload = yield call(AuthService.login, {...action.payload});
+		//const payload = yield call(AuthService.login, {...action.payload});
+		const payload = {
+			"success":true
+		}
 		console.log('paylod = ' + JSON.stringify(payload));
 		yield put({type: APP_LOGIN_SUCCESS, payload});
 	} catch (error) {
