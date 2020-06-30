@@ -21,7 +21,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import Header from "./header";
 
 const useStyles = makeStyles((theme) => ({
   page:{
@@ -55,19 +55,7 @@ export default function SignUp() {
 
   return ( 
   <React.Fragment>
-      <AppBar position="static" color="default" elevation={0} className={classes.appBar} style={{ backgroundColor: "#24292e" }}>
-        <Toolbar className={classes.toolbar}>
-        <Avatar className={classes.AppBar} src={logo}>
-        </Avatar>
-          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle} style={{ color: "white" }}>
-            &nbsp;&nbsp;Testing and Calibration Laboratory
-          </Typography>
-          <Button href="#" color="primary" variant="outlined" className={classes.link} style={{ marginLeft: "auto", color: "white" }}>
-            Sign In
-          </Button>
-        </Toolbar>
-      </AppBar>  
-      
+      <Header />      
       <TableContainer >
       <Table borderRadius="0" className={classes.table} aria-label="customized table" style={{ backgroundImage:`url(${loginPageSideImage})`}}>
         <TableRow>

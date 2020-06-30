@@ -3,6 +3,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
+import Link from '@material-ui/core/Link';
 import {
   makeStyles,
   withStyles,
@@ -55,6 +56,13 @@ export default function Header(props: any) {
         >
           &nbsp;&nbsp;Testing and Calibration Laboratory
         </Typography>
+        {(window.location.pathname == ("/testplan" || "/jobReviewForm")) && 
+        <nav>
+          <Link variant="button" color="textPrimary" href="#" className={classes.link} style={{ color: "white" }}>
+            Last 5 Submissions
+          </Link>
+        </nav>}  
+        {window.location.pathname == "/dashboard" && 
         <NavLink to="/search" style={{ textDecoration: 'none' }}>
           <Button
             href="#"
@@ -65,7 +73,8 @@ export default function Header(props: any) {
           >
             Create New
           </Button>
-        </NavLink>
+        </NavLink>}
+        {window.location.pathname != "/signin" && window.location.pathname != "/signUp" && 
         <Button
           href="#"
           color="primary"
@@ -73,8 +82,32 @@ export default function Header(props: any) {
           className={classes.link}
           style={{ marginLeft: "auto", color: "white" }}
         >
-          Sign up
-        </Button>
+          Logout
+        </Button>}
+        {window.location.pathname == "/signin" && 
+        <NavLink to="/signUp" style={{ textDecoration: 'none' }}>
+          <Button
+            href="#"
+            color="primary"
+            variant="outlined"
+            className={classes.link}
+            style={{ marginLeft: "auto", color: "white" }}
+          >
+            Sign Up
+          </Button>
+        </NavLink>}
+        {window.location.pathname == "/signUp" && 
+        <NavLink to="/signin" style={{ textDecoration: 'none' }}>
+          <Button
+            href="#"
+            color="primary"
+            variant="outlined"
+            className={classes.link}
+            style={{ marginLeft: "auto", color: "white" }}
+          >
+            Sign In
+          </Button>
+        </NavLink>}
       </Toolbar>
     </AppBar>
   );
