@@ -56,13 +56,13 @@ export default function Header(props: any) {
         >
           &nbsp;&nbsp;Testing and Calibration Laboratory
         </Typography>
-        {(window.location.pathname == ("/testplan" || "/jobReviewForm")) && 
+        {(window.location.pathname === "/testplan" || window.location.pathname === "/jobReviewForm") && 
         <nav>
           <Link variant="button" color="textPrimary" href="#" className={classes.link} style={{ color: "white" }}>
             Last 5 Submissions
           </Link>
         </nav>}  
-        {window.location.pathname == "/dashboard" && 
+        {window.location.pathname === "/dashboard" && 
         <NavLink to="/search" style={{ textDecoration: 'none' }}>
           <Button
             href="#"
@@ -74,7 +74,7 @@ export default function Header(props: any) {
             Create New
           </Button>
         </NavLink>}
-        {window.location.pathname != "/signin" && window.location.pathname != "/signUp" && 
+        {window.location.pathname !== "/signin" && window.location.pathname !== "/signUp" && 
         <Button
           href="#"
           color="primary"
@@ -84,7 +84,7 @@ export default function Header(props: any) {
         >
           Logout
         </Button>}
-        {window.location.pathname == "/signin" && 
+        {window.location.pathname === "/signin" && 
         <NavLink to="/signUp" style={{ textDecoration: 'none' }}>
           <Button
             href="#"
@@ -96,7 +96,7 @@ export default function Header(props: any) {
             Sign Up
           </Button>
         </NavLink>}
-        {window.location.pathname == "/signUp" && 
+        {window.location.pathname === "/signUp" && 
         <NavLink to="/signin" style={{ textDecoration: 'none' }}>
           <Button
             href="#"
