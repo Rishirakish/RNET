@@ -4,11 +4,11 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import JobReviewForm from "./components/jobReviewForm";
-import SignUp from "./components/signUp";
+import JobReviewForm from "./containers/jobreview/index";
+import SignUp from "./containers/auth/signup";
 import TestPlan from "./containers/testplan/index";
 import SignIn from "./containers/auth/login";
-import LabSearch from "./containers/lab_search";
+import LabSearch from "./containers/labsearch";
 import Dashboard from "./containers/dashboard"
 
 function App() {
@@ -21,11 +21,11 @@ function App() {
             <div className="auth-inner">
               <Switch>
                 <Route exact path="/signin" component={SignIn} />
-                <Route path="/signUp" component={SignUp} />
+                <Route path="/signup" component={SignUp} />
                 <Route path="/testplan" component={TestPlan} />
                 <Route path="/jobReviewForm" component={JobReviewForm} />
                 <Route path="/search" component={LabSearch} />
-                <Route path="/dashboard" component={Dashboard}/>
+                <Route path="/" component={Dashboard}/>
               </Switch>
             </div>
           </div>

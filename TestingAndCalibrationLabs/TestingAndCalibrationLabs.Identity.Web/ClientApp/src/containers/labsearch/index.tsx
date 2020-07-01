@@ -109,7 +109,7 @@ export default function LabSearch() {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+             Next
             </Button>
           </NavLink>
         </Grid>

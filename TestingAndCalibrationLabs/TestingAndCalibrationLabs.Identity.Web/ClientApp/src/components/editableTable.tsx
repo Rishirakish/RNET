@@ -39,16 +39,26 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 //     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 //   };
 
-export default function TestPlanList() {
+export default function JobReviewSampleList() {
+
+    type IType =
+  | "string"
+  | "boolean"
+  | "numeric"
+  | "date"
+  | "datetime"
+  | "time"
+  | "currency";
+const string: IType = "string";
+const numeric: IType = "numeric";
+
   const [state, setState] = React.useState({
         columns: [
-      { title: 'Test Name', field: 'TestName' },
-      { title: 'Test Method', field: 'TestMethod' },
-      { title: 'Person Authorized', field: 'PersonAuthorized' },      
-      { title: 'Received On', field: 'ReceivedOn', type: 'date'},          
-      { title: 'Targeted On', field: 'TargetedOn', type: 'date'},        
-      { title: 'Completed On', field: 'CompletedOn', type: 'date'},
-      { title: 'Remarks', field: 'Remarks'}
+      { title: 'Sample Description', field: 'sampleDescription', type:string },
+      { title: 'Sample Identification No', field: 'sampleIdentificationNo' , type:string },    
+      { title: 'Quantity/Size/Weight', field: 'quantitySizeWeight', type: numeric},          
+      { title: 'No Of Test Required', field: 'noOfTestRequired', type: numeric},        
+      { title: 'Test Method\Protocol Used', field: 'TestMethodProtocolUsed', type:string }
       // {
       //   title: 'Date Received',
       //   field: 'DateReceived',
@@ -56,38 +66,21 @@ export default function TestPlanList() {
       // },
     ],
     data: [
-      { TestName: 'Material test 1', TestMethod: 'Material Strength', PersonAutherized: "Rishi", ReceivedOn:"6/23/2020", TargetedOn:"7/23/2020", CompletedOn:"8/23/2020", Remarks: "Some comments or information"},
-      { TestName: 'Material test 2', TestMethod: 'Humidity Amount', PersonAutherized: "Sanjay", ReceivedOn:"5/23/2020", TargetedOn:"6/23/2020", CompletedOn:"8/23/2020", Remarks: "Some comments or information"},      
-      { TestName: 'Material test 3', TestMethod: 'Material Strength', PersonAutherized: "Rishi", ReceivedOn:"6/23/2020", TargetedOn:"7/23/2020", CompletedOn:"8/23/2020", Remarks: "Some comments or information" },
+      { sampleDescription: 'Test Sample Description 1', sampleIdentificationNo: 'qwert1', quantitySizeWeight: 3, noOfTestRequired:4, TestMethodProtocolUsed:"zxc method"},
+      { sampleDescription: 'Test Sample Description 2', sampleIdentificationNo: 'qwert2', quantitySizeWeight: 4, noOfTestRequired:4, TestMethodProtocolUsed:"zxc protocol"},      
+      { sampleDescription: 'Test Sample Description 3', sampleIdentificationNo: 'qwert3', quantitySizeWeight: 5, noOfTestRequired:4, TestMethodProtocolUsed:"zxc method"},
+      { sampleDescription: 'Test Sample Description 4', sampleIdentificationNo: 'qwert4', quantitySizeWeight: 2, noOfTestRequired:4, TestMethodProtocolUsed:"zxc protocol"},            
+      { sampleDescription: 'Test Sample Description 5', sampleIdentificationNo: 'qwert5', quantitySizeWeight: 2, noOfTestRequired:4, TestMethodProtocolUsed:"zxc method"},
+      { sampleDescription: 'Test Sample Description 6', sampleIdentificationNo: 'qwert6', quantitySizeWeight: 1, noOfTestRequired:4, TestMethodProtocolUsed:"zxc protocol"}
     ],
   });  
 
   return (
     <MaterialTable
-      title="Test Plan"
+      title="Sample Receipt cum Job Review Form"
       columns={state.columns}
       data={state.data}
-      icons = {{
-        Search: () => <Search />,
-        Add: () => <AddBox />,
-        Clear: () => <Clear />,
-        Check: () => <Check />,
-        Delete: () => <DeleteOutline />,
-        ArrowDownward: () => <ArrowDownward />,
-        ChevronLeft: () => <ChevronLeft />,
-        ChevronRight: () => <ChevronRight/>,
-        DeleteOutline: () => <DeleteOutline />,
-        Edit: () => <Edit />,
-        FilterList: () => <FilterList />,
-        FirstPage: () => <FirstPage />,
-        LastPage: () => <LastPage />,
-        NextPage: () => <ChevronRight />,
-        PreviousPage: () => <ChevronLeft />,
-        Remove: () => <Remove />,
-        SaveAlt: () => <SaveAlt />,
-        ViewColumn: () => <ViewColumn />,
-        ResetSearch: () => <Clear />
-      }}
+     
       editable={{
         onRowAdd: (newData) =>
           new Promise((resolve) => {

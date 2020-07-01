@@ -1,16 +1,14 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Link from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
-import logo from "../static/images/logo.png";
-import TestPlanList from './testplanList';
-import Header from '../../components/header';
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import React from "react";
+import Header from "../../components/header";
+import TestPlanList from "./testplanList";
+import { connect } from "react-redux";
+import IAppState from "../../stores/common/state";
+import Button from "@material-ui/core/Button";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,21 +16,21 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary
+    textAlign: "center",
+    color: theme.palette.text.secondary,
   },
-  container:{
-    margin: 0
+  container: {
+    margin: 0,
   },
-  title:{
-    textAlign: 'center',
-    paddingTop: '4px'
+  title: {
+    textAlign: "center",
+    paddingTop: "4px",
   },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbar: {
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
   },
   toolbarTitle: {
     flexGrow: 1,
@@ -43,27 +41,43 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
     width: 51,
-    height: 50
+    height: 50,
   },
-  submit:{
-    textAlign: 'center'
-  }
+  submit: {
+    textAlign: "center",
+  },
 }));
 
-export default function TestPlan() {
-  const classes = useStyles();
-  return (
-    <React.Fragment>
-     <Header/>
-      <Typography variant="h5" gutterBottom className={classes.title}>
-        GLOBAL TESTING & RESEARCH LABORATORY
-      </Typography>
-      <Grid container item xs={12} spacing={3} className={classes.container}>
-        
-      <Grid item xs={12} sm={12}>
-          <Typography variant='h6'>JOB.S. NO: 1234 </Typography>
+class TestPlan extends React.Component<any, any> {
+  render() {
+    return (
+      <React.Fragment>
+        <Header />
+        {/* <Typography variant="h5" gutterBottom className={classes.title}>
+          GLOBAL TESTING & RESEARCH LABORATORY
+        </Typography> */}
+        <Grid container item xs={12} spacing={3} style={{ margin: 0 }}>
+          <Grid item xs={12} sm={9}>
+            <Typography variant="h6">JOB.S. NO: 1234 </Typography>
+          </Grid>
+
+          <Grid
+            container
+            item
+            xs={12}
+            sm={3}
+            alignItems="flex-end"
+            justify="flex-end"
+            direction="row"
+          >
+            <NavLink to="/jobReviewForm" style={{ textDecoration: "none" }}>
+              <Button variant="contained" color="primary">
+                Next
+              </Button>
+            </NavLink>
+          </Grid>
         </Grid>
-        <Grid container spacing={1} >
+        <Grid container spacing={1}>
           <Grid item xs={12} sm={3}>
             <TextField
               required
@@ -133,71 +147,20 @@ export default function TestPlan() {
             />
           </Grid>
         </Grid>
-       {/* <Grid item xs={12} >
-          <TextField
-            required
-            id="testName"
-            name="testName"
-            label="Name of Test:"
-            fullWidth
-            autoComplete="testName"
-            variant="outlined"
-          />
-        </Grid>
-         <Grid item xs={12}>
-          <TextField
-            id="testMethod"
-            name="testMethod"
-            label="Test Method:"
-            fullWidth
-            autoComplete="testMethod"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="personAuthorised"
-            name="personAuthorised"
-            label="Person Authorised:"
-            fullWidth
-            autoComplete="personAuthorised"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField id="dateOfSampleRec" variant="outlined" name="dateOfSampleRec" label="Date of Sample recieved:" fullWidth />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="targetDateOfComp"
-            name="targetDateOfComp"
-            label="Target date of completion:"
-            fullWidth
-            autoComplete="targetDateOfComp"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="actualDateOfComp"
-            name="actualDateOfComp"
-            label="Actual date of completion:"
-            fullWidth
-            autoComplete="actualDateOfComp"
-            variant="outlined"
-          />
-        </Grid>
-        <Grid item xs={12} sm={12} className={classes.submit}>
-          <Button variant="contained" color="primary">
-            Submit
-          </Button>
-        </Grid> */}
-      </Grid>
-      <br/>
-      {/* <TestPlanList name="testPlanList" /> */}
-    </React.Fragment>
-  );
+        <br />
+        <TestPlanList />
+        <br />
+      </React.Fragment>
+    );
+  }
 }
+export function mapStateToProps(state: IAppState) {
+  console.log(state);
+  //return state.authState;
+}
+
+export function mapDispatchToProps(dispatch: any) {
+  return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestPlan);
