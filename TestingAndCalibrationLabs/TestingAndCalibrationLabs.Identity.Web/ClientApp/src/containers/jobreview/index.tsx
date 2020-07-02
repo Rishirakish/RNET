@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import Header from '../../components/header';
 import IAppState from '../../stores/common/state';
 import TestPlanList from './jobReviewSampleList';
+import Button from "@material-ui/core/Button";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,8 +58,23 @@ class JobReview extends React.Component<any, any> {
           GLOBAL TESTING & RESEARCH LABORATORY
         </Typography> */}
         <Grid container item xs={12} spacing={3} style={{ margin: 0 }}>
-          <Grid item xs={12} sm={12}>
+          <Grid item xs={12} sm={9}>
             <Typography variant="h6">Job Serial No: QWERTASDFG </Typography>
+          </Grid>
+          <Grid
+            container
+            item
+            xs={12}
+            sm={3}
+            alignItems="flex-end"
+            justify="flex-end"
+            direction="row"
+          >
+            <NavLink to="/jobReviewForm" style={{ textDecoration: "none" }}>
+              <Button variant="contained" color="primary">
+                Submit & Print Receipt
+              </Button>
+            </NavLink>
           </Grid>
           <Grid container spacing={1}>
             <Grid item xs={12} sm={3}>

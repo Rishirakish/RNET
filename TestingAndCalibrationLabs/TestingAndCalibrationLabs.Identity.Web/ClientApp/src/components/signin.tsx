@@ -65,16 +65,16 @@ export default function SignIn(props: any) {
       component="main"
       maxWidth="xs"
       className={classes.form}
-      style={{ backgroundColor: "White" }}
+      style={{ backgroundColor: "White", marginTop: window.innerHeight/11 }}
     >
       <CssBaseline />
       <br />
       <Avatar
         className={classes.avatar}
         src={logo}
-        style={{ marginLeft: "35%" }}
+        style={{ marginLeft: "35%", height: "120px", width: "120px" }}
       ></Avatar>
-      <Typography component="h1" variant="h5" style={{ marginLeft: "36%" }}>
+      <Typography component="h1" variant="h5" style={{ marginLeft: "40%" }}>
         Sign in
       </Typography>
       <form className={classes.form} noValidate>
@@ -111,8 +111,9 @@ export default function SignIn(props: any) {
           color="primary"
           className={classes.submit}
           onClick={props.onClick}
+          style={{ height: "50px" }}
         >
-          Sign In
+          <span style={{ fontSize: "20px" }}>Sign In</span>
         </Button>
         <Grid container>
           <Grid item xs>
