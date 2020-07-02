@@ -84,7 +84,7 @@ export default function LabSearch() {
         //className="tag-item .search react-dropdown-tree-select .dropdown .dropdown-trigger .dropdown-content"
         onChange={onChange}
         texts={{
-          placeholder: "Laboratory Search",
+          placeholder: "Select Test Category",
         }}
         showDropdown="default"
         // inlineSearchInput={
