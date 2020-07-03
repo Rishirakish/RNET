@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
       borderBottom: `1px solid ${theme.palette.divider}`,
-      margin: 0
     },
     toolbar: {
       flexWrap: "wrap",
@@ -96,7 +95,7 @@ export default function Header(props: any) {
       color="default"
       elevation={0}
       className={classes.appBar}
-      style={{ backgroundColor: "#24292e", margin: 0 }}
+      style={{ backgroundColor: "#24292e" }}
     >
       <CssBaseline/>
       <Toolbar className={classes.toolbar}>
