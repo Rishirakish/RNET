@@ -109,7 +109,7 @@ export default function Header(props: any) {
         >
           &nbsp;&nbsp;Testing and Calibration Laboratory
         </Typography> 
-        {window.location.pathname === "/dashboard" && 
+        {window.location.pathname === "/" && 
         <NavLink to="/search" style={{ textDecoration: 'none' }}>
           <Button
             href="#"
