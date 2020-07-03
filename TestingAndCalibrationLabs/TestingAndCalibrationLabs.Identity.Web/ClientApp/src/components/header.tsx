@@ -3,7 +3,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-import Link from '@material-ui/core/Link';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -12,13 +11,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import {
   makeStyles,
-  withStyles,
   Theme,
   createStyles,
 } from "@material-ui/core/styles";
 import logo from "../static/images/logo.png";
 import Button from "@material-ui/core/Button";
 import { NavLink } from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -98,6 +97,7 @@ export default function Header(props: any) {
       className={classes.appBar}
       style={{ backgroundColor: "#24292e" }}
     >
+      <CssBaseline/>
       <Toolbar className={classes.toolbar}>
         <Avatar src={logo}></Avatar>
         <Typography
