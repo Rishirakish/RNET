@@ -47,9 +47,13 @@ class Login extends React.Component<LoginProps, LoginState> {
         <Header />
 
         <TableContainer
-          style={{ backgroundImage: `url(${loginPageSideImage})`, height: window.innerHeight }}
+          style={{ backgroundImage: `url(${loginPageSideImage})` }}
         >
-          <Table aria-label="customized table">
+          <Table aria-label="customized table" 
+          
+          style={{ height: window.innerHeight }}
+          
+          >
             <TableRow>
               <TableCell>
                 <SignIn onClick={this.login} />

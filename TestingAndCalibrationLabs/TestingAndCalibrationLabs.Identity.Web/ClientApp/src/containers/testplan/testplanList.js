@@ -1,23 +1,23 @@
-import React from 'react';
-import MaterialTable from 'material-table';
+import React from "react";
+import MaterialTable from "material-table";
 
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 
-import AddBox from '@material-ui/icons/AddBox';
-import ArrowDownward from '@material-ui/icons/ArrowDownward';
-import Check from '@material-ui/icons/Check';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import ChevronRight from '@material-ui/icons/ChevronRight';
-import Clear from '@material-ui/icons/Clear';
-import DeleteOutline from '@material-ui/icons/DeleteOutline';
-import Edit from '@material-ui/icons/Edit';
-import FilterList from '@material-ui/icons/FilterList';
-import FirstPage from '@material-ui/icons/FirstPage';
-import LastPage from '@material-ui/icons/LastPage';
-import Remove from '@material-ui/icons/Remove';
-import SaveAlt from '@material-ui/icons/SaveAlt';
-import Search from '@material-ui/icons/Search';
-import ViewColumn from '@material-ui/icons/ViewColumn';
+import AddBox from "@material-ui/icons/AddBox";
+import ArrowDownward from "@material-ui/icons/ArrowDownward";
+import Check from "@material-ui/icons/Check";
+import ChevronLeft from "@material-ui/icons/ChevronLeft";
+import ChevronRight from "@material-ui/icons/ChevronRight";
+import Clear from "@material-ui/icons/Clear";
+import DeleteOutline from "@material-ui/icons/DeleteOutline";
+import Edit from "@material-ui/icons/Edit";
+import FilterList from "@material-ui/icons/FilterList";
+import FirstPage from "@material-ui/icons/FirstPage";
+import LastPage from "@material-ui/icons/LastPage";
+import Remove from "@material-ui/icons/Remove";
+import SaveAlt from "@material-ui/icons/SaveAlt";
+import Search from "@material-ui/icons/Search";
+import ViewColumn from "@material-ui/icons/ViewColumn";
 
 // const tableIcons = {
 //     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -39,16 +39,20 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 //     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 //   };
 
+
 export default function TestPlanList() {
   const [state, setState] = React.useState({
-        columns: [
-      { title: 'Test Name', field: 'TestName' },
-      { title: 'Test Method', field: 'TestMethod' },
-      { title: 'Person Authorized', field: 'PersonAuthorized' },      
-      { title: 'Received On', field: 'ReceivedOn', type: 'date'},          
-      { title: 'Targeted On', field: 'TargetedOn', type: 'date'},        
-      { title: 'Completed On', field: 'CompletedOn', type: 'date'},
-      { title: 'Remarks', field: 'Remarks'}
+    columns: [
+      {
+        title: "Test Name",
+        field: "TestName"
+      },
+      { title: "Test Method", field: "TestMethod" },
+      { title: "Person Authorized", field: "PersonAuthorized" },
+      { title: "Received On", field: "ReceivedOn", type: "date" },
+      { title: "Targeted On", field: "TargetedOn", type: "date" },
+      { title: "Completed On", field: "CompletedOn", type: "date" },
+      { title: "Remarks", field: "Remarks" },
       // {
       //   title: 'Date Received',
       //   field: 'DateReceived',
@@ -56,18 +60,42 @@ export default function TestPlanList() {
       // },
     ],
     data: [
-      { TestName: 'Material test 1', TestMethod: 'Material Strength', PersonAutherized: "Rishi", ReceivedOn:"6/23/2020", TargetedOn:"7/23/2020", CompletedOn:"8/23/2020", Remarks: "Some comments or information"},
-      { TestName: 'Material test 2', TestMethod: 'Humidity Amount', PersonAutherized: "Sanjay", ReceivedOn:"5/23/2020", TargetedOn:"6/23/2020", CompletedOn:"8/23/2020", Remarks: "Some comments or information"},      
-      { TestName: 'Material test 3', TestMethod: 'Material Strength', PersonAutherized: "Rishi", ReceivedOn:"6/23/2020", TargetedOn:"7/23/2020", CompletedOn:"8/23/2020", Remarks: "Some comments or information" },
+      {
+        TestName: "Material test 1",
+        TestMethod: "Material Strength",
+        PersonAuthorized: "Rishi",
+        ReceivedOn: "6/23/2020",
+        TargetedOn: "7/23/2020",
+        CompletedOn: "8/23/2020",
+        Remarks: "Some comments or information",
+      },
+      {
+        TestName: "Material test 2",
+        TestMethod: "Humidity Amount",
+        PersonAuthorized: "Sanjay",
+        ReceivedOn: "5/23/2020",
+        TargetedOn: "6/23/2020",
+        CompletedOn: "8/23/2020",
+        Remarks: "Some comments or information",
+      },
+      {
+        TestName: "Material test 3",
+        TestMethod: "Material Strength",
+        PersonAuthorized: "Rishi",
+        ReceivedOn: "6/23/2020",
+        TargetedOn: "7/23/2020",
+        CompletedOn: "8/23/2020",
+        Remarks: "Some comments or information",
+      },
     ],
-  });  
+  });
 
   return (
     <MaterialTable
       title="Test Plan"
       columns={state.columns}
       data={state.data}
-      icons = {{
+      icons={{
         Search: () => <Search />,
         Add: () => <AddBox />,
         Clear: () => <Clear />,
@@ -75,7 +103,7 @@ export default function TestPlanList() {
         Delete: () => <DeleteOutline />,
         ArrowDownward: () => <ArrowDownward />,
         ChevronLeft: () => <ChevronLeft />,
-        ChevronRight: () => <ChevronRight/>,
+        ChevronRight: () => <ChevronRight />,
         DeleteOutline: () => <DeleteOutline />,
         Edit: () => <Edit />,
         FilterList: () => <FilterList />,
@@ -86,7 +114,7 @@ export default function TestPlanList() {
         Remove: () => <Remove />,
         SaveAlt: () => <SaveAlt />,
         ViewColumn: () => <ViewColumn />,
-        ResetSearch: () => <Clear />
+        ResetSearch: () => <Clear />,
       }}
       editable={{
         onRowAdd: (newData) =>
@@ -124,6 +152,14 @@ export default function TestPlanList() {
               });
             }, 600);
           }),
+      }}
+      options={{
+        headerStyle: {
+          backgroundColor: '#eeeeee',
+          color: '#000',
+          height:"20px",
+          maxHeight:"20px"
+        }
       }}
     />
   );

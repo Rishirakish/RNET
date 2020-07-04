@@ -31,7 +31,7 @@
 }
 
 .alignCenter {
-  margin-left:500;
+  margin-left:100;
   margin-top:50;
   width: 400;
 }
@@ -46,11 +46,7 @@
 .react-dropdown-tree-select .dropdown {
   position: relative;
   display: table;
-  align-items: center;
-  margin-left: 420px; 
-   margin-top: 100px;
-  align-self: center!important;
-  align-content: center;
+
  
 
   
@@ -85,4 +81,26 @@
   vertical-align: middle;
   color: #3c3c3c;
   margin-right: 2px;
+}
+
+.tag{
+  display: none;
+  list-style: none;
+  visibility: hidden;
+}
+
+.tag-remove{
+  display: none;
+  list-style: none;
+}
+
+.tag-item{
+  margin: 0px;
+}
+
+.tag-item .search {
+  border: none;
+  /* border-bottom: 1px solid #ccc; */
+  outline: none;
+  width: 400px;
 }

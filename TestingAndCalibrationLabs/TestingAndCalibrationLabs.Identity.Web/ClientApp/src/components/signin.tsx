@@ -72,7 +72,7 @@ export default function SignIn(props: any) {
       <Avatar
         className={classes.avatar}
         src={logo}
-        style={{ marginLeft: "35%", height: "120px", width: "120px" }}
+        style={{ marginLeft: "40%" }}
       ></Avatar>
       <Typography component="h1" variant="h5" style={{ marginLeft: "40%" }}>
         Sign in
@@ -111,7 +111,6 @@ export default function SignIn(props: any) {
           color="primary"
           className={classes.submit}
           onClick={props.onClick}
-          style={{ height: "50px" }}
         >
           <span style={{ fontSize: "20px" }}>Sign In</span>
         </Button>

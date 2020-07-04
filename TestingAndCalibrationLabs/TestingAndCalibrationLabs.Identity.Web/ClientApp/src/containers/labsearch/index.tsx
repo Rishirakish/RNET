@@ -1,13 +1,16 @@
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import React from "react";
+import React, { useState } from "react";
 import DropdownTreeSelect from "react-dropdown-tree-select";
 import "react-dropdown-tree-select/dist/styles.css";
 import { NavLink } from "react-router-dom";
 import Header from "../../components/header";
 import data from "./data.json";
 import "./index.css";
+import Paper from "@material-ui/core/Paper";
+import Table from "@material-ui/core/Table";
+import { TableBody, TableRow } from "@material-ui/core";
 
 const onChange = (currentNode: any, selectedNodes: any) => {
   console.log("onChange::", selectedNodes[0]);
@@ -33,11 +36,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
+
   container: {
     margin: 0,
   },
@@ -70,38 +69,55 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 500,
     marginTop: 50,
   },
+  paper: {
+    padding: theme.spacing(1),
+    color: theme.palette.text.secondary,
+    whiteSpace: "nowrap",
+    marginBottom: theme.spacing(1),
+    marginTop: "100px",
+    marginLeft: "60px",
+  },
 }));
 
 export default function LabSearch() {
   const classes = useStyles();
+  const [nodes, setNodes] = useState();
 
   return (
     <React.Fragment>
       <Header />
 
-      <DropdownTreeSelect
-        data={data}
-        //className="tag-item .search react-dropdown-tree-select .dropdown .dropdown-trigger .dropdown-content"
-        onChange={onChange}
-        texts={{
-          placeholder: "Select Test Category",
-        }}
-        showDropdown="default"
-        // inlineSearchInput={
-        //   true
-        // }
-        // keepOpenOnSelect={false}
-        // keepChildrenOnSearch={false}
-        keepTreeOnSearch={true}
-      />
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        style={{ minHeight: "100vh",marginTop:'50px' }}
-      >
-        <Grid item xs={3}>
+      <Grid container spacing={3}>
+        <Grid item xs={6}>
+          <DropdownTreeSelect
+            data={data}
+            //className="tag-item .search react-dropdown-tree-select .dropdown .dropdown-trigger .dropdown-content"
+            onChange={(currentNode: any, selectedNodes: any) => {
+             
+              //setNodes(selectedNodes)
+            }}
+            texts={{
+              placeholder: "Select Test Category",
+            }}
+            className={classes.paper}
+            showDropdown="default"
+            // inlineSearchInput={
+            //   true
+            // }
+            // keepOpenOnSelect={false}
+            // keepChildrenOnSearch={false}
+            keepTreeOnSearch={true}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <Table>
+            <TableBody>
+              <TableRow></TableRow>
+            </TableBody>
+          </Table>
+        </Grid>
+        <Grid item xs={2}></Grid>
+        <Grid item xs={6}>
           <NavLink to="/testplan" style={{ textDecoration: "none" }}>
             <Button
               type="submit"
@@ -109,7 +125,7 @@ export default function LabSearch() {
               color="primary"
               className={classes.submit}
             >
-             Next
+              Next
             </Button>
           </NavLink>
         </Grid>
