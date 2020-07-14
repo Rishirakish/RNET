@@ -1,52 +1,58 @@
-import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import React from "react";
-import Header from "../../components/header";
-import TestPlanList from "./testplanList";
-import { connect } from "react-redux";
-import IAppState from "../../stores/common/state";
-import Button from "@material-ui/core/Button";
-import { NavLink } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+import EditableTable from '../../components/editableTable';
+import Header from '../../components/header';
+import IAppState from '../../stores/common/state';
+
+
+const columns = [
+  {
+    title: "Test Name",
+    field: "TestName",
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
+  { title: "Test Method", field: "TestMethod" },
+  { title: "Person Authorized", field: "PersonAuthorized" },
+  { title: "Received On", field: "ReceivedOn", type: "date" },
+  { title: "Targeted On", field: "TargetedOn", type: "date" },
+  { title: "Completed On", field: "CompletedOn", type: "date" },
+  { title: "Remarks", field: "Remarks" },
+];
+
+const data = [
+  {
+    TestName: "Material test 1",
+    TestMethod: "Material Strength",
+    PersonAuthorized: "Rishi",
+    ReceivedOn: "6/23/2020",
+    TargetedOn: "7/23/2020",
+    CompletedOn: "8/23/2020",
+    Remarks: "Some comments or information",
   },
-  container: {
-    margin: 0,
+  {
+    TestName: "Material test 2",
+    TestMethod: "Humidity Amount",
+    PersonAuthorized: "Sanjay",
+    ReceivedOn: "5/23/2020",
+    TargetedOn: "6/23/2020",
+    CompletedOn: "8/23/2020",
+    Remarks: "Some comments or information",
   },
-  title: {
-    textAlign: "center",
-    paddingTop: "4px",
+  {
+    TestName: "Material test 3",
+    TestMethod: "Material Strength",
+    PersonAuthorized: "Rishi",
+    ReceivedOn: "6/23/2020",
+    TargetedOn: "7/23/2020",
+    CompletedOn: "8/23/2020",
+    Remarks: "Some comments or information",
   },
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-  },
-  toolbar: {
-    flexWrap: "wrap",
-  },
-  toolbarTitle: {
-    flexGrow: 1,
-  },
-  link: {
-    margin: theme.spacing(1, 1.5),
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    width: 51,
-    height: 50,
-  },
-  submit: {
-    textAlign: "center",
-  },
-}));
+];
 
 class TestPlan extends React.Component<any, any> {
   render() {
@@ -148,7 +154,8 @@ class TestPlan extends React.Component<any, any> {
           </Grid>
         </Grid>
         <br />
-        <TestPlanList />
+        {/* <TestPlanList /> */}
+        <EditableTable title="Test Plan" columns={columns} data={data} />
         <br />
       </React.Fragment>
     );

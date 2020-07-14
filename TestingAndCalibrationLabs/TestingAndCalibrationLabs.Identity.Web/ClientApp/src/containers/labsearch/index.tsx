@@ -11,16 +11,11 @@ import "./index.css";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import { TableBody, TableRow } from "@material-ui/core";
+import IAppState from "../../stores/common/state";
+import { connect } from "react-redux";
 
-const onChange = (currentNode: any, selectedNodes: any) => {
-  console.log("onChange::", selectedNodes[0]);
-};
-const onAction = (node: any, action: any) => {
-  console.log("onAction::", action, node);
-};
-const onNodeToggle = (currentNode: any) => {
-  console.log("onNodeToggle::", currentNode);
-};
+
+
 
 const assignObjectPaths = (obj: { [x: string]: any }, stack: any) => {
   Object.keys(obj).forEach((k) => {
@@ -79,70 +74,90 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LabSearch() {
-  const classes = useStyles();
-  const [nodes, setNodes] = useState();
+export class TestSearch extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props);
+    this.state={
+      category:"Pragya",
+      data:data
 
-  return (
-    <React.Fragment>
-      <Header />
+    }
+  }
 
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-          <DropdownTreeSelect
-            data={data}
-            //className="tag-item .search react-dropdown-tree-select .dropdown .dropdown-trigger .dropdown-content"
-            onChange={(currentNode: any, selectedNodes: any) => {
-             
-              //setNodes(selectedNodes)
-            }}
-            texts={{
-              placeholder: "Select Test Category",
-            }}
-            className={classes.paper}
-            showDropdown="default"
-            // inlineSearchInput={
-            //   true
-            // }
-            // keepOpenOnSelect={false}
-            // keepChildrenOnSearch={false}
-            keepTreeOnSearch={true}
-          />
-        </Grid>
-        <Grid item xs={6}>
-          <Table>
-            <TableBody>
-              <TableRow></TableRow>
-            </TableBody>
-          </Table>
-        </Grid>
-        <Grid item xs={2}></Grid>
-        <Grid item xs={6}>
-          <NavLink to="/testplan" style={{ textDecoration: "none" }}>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Next
-            </Button>
-          </NavLink>
-        </Grid>
-      </Grid>
-    </React.Fragment>
-  );
+   onChange = (currentNode: any, selectedNodes: any) => {
+    console.log("onChange::", selectedNodes[0]);
+    // this.setState({
+    //   category:selectedNodes[0].label
+    // })
+  };
+
+   onAction = (node: any, action: any) => {
+    console.log("onAction::", action, node);
+  };
+
+   onNodeToggle = (currentNode: any) => {
+    console.log("onNodeToggle::", currentNode);
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <Header />
+        <div style={{ height: window.innerHeight }}>
+          <Grid container spacing={3}>
+            <Grid item xs={6}>
+              <DropdownTreeSelect
+                data={this.state.data}
+                //className="tag-item .search react-dropdown-tree-select .dropdown .dropdown-trigger .dropdown-content"
+                onChange={this.onChange}
+                texts={{
+                  placeholder: "Select Test Category",
+                }}
+                 showDropdown="initial"
+                 keepOpenOnSelect={true}
+                 keepChildrenOnSearch={true}
+                keepTreeOnSearch={true}
+                showPartiallySelected={true}
+                onAction={this.onAction}
+                onNodeToggle={this.onNodeToggle}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              {this.state.category}
+              {/* <Table>
+                <TableBody>
+                  <TableRow>vdfds</TableRow>
+                </TableBody>
+              </Table> */}
+            </Grid>
+            <Grid item xs={2}></Grid>
+            <Grid item xs={6}>
+              <NavLink to="/testplan" style={{ textDecoration: "none" }}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  style={{ textAlign: "center" }}
+                >
+                  Next
+                </Button>
+              </NavLink>
+            </Grid>
+          </Grid>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
-// export function mapStateToProps(state: IAppState):ILoginState {
-//   console.log(state);
-//   //initErrorMessage(state.authState);
-//   return state.authState
-// }
+export function mapStateToProps(state: IAppState) {
+  console.log(state);
+  //initErrorMessage(state.authState);
+  return state.authState;
+}
 
-// export function mapDispatchToProps(dispatch: any) {
+export function mapDispatchToProps(dispatch: any) {
+  return {};
+}
 
-//   return {};
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(LabSearch);
+export default connect(mapStateToProps, mapDispatchToProps)(TestSearch);

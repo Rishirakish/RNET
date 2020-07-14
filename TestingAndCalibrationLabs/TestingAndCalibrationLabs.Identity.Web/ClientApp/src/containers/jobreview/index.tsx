@@ -1,53 +1,73 @@
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import React from 'react';
-import { connect } from 'react-redux';
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import React from "react";
+import { connect } from "react-redux";
 
-import Header from '../../components/header';
-import IAppState from '../../stores/common/state';
-import TestPlanList from './jobReviewSampleList';
+import Header from "../../components/header";
+import IAppState from "../../stores/common/state";
 import Button from "@material-ui/core/Button";
 import { NavLink } from "react-router-dom";
+import EditableTable from "../../components/editableTable";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+
+const columns = [
+  { title: "Sample Description", field: "sampleDescription" },
+  { title: "Sample Identification No", field: "sampleIdentificationNo" },
+  {
+    title: "Quantity/Size/Weight",
+    field: "quantitySizeWeight",
+    type: "numeric",
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
+  { title: "No Of Test Required", field: "noOfTestRequired", type: "numeric" },
+  { title: "Test MethodProtocol Used", field: "TestMethodProtocolUsed" },
+];
+
+const data = [
+  {
+    sampleDescription: "Test Sample Description 1",
+    sampleIdentificationNo: "qwert1",
+    quantitySizeWeight: 3,
+    noOfTestRequired: 4,
+    TestMethodProtocolUsed: "zxc method",
   },
-  container: {
-    margin: 0,
+  {
+    sampleDescription: "Test Sample Description 2",
+    sampleIdentificationNo: "qwert2",
+    quantitySizeWeight: 4,
+    noOfTestRequired: 4,
+    TestMethodProtocolUsed: "zxc protocol",
   },
-  title: {
-    textAlign: "center",
-    paddingTop: "4px",
+  {
+    sampleDescription: "Test Sample Description 3",
+    sampleIdentificationNo: "qwert3",
+    quantitySizeWeight: 5,
+    noOfTestRequired: 4,
+    TestMethodProtocolUsed: "zxc method",
   },
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
+  {
+    sampleDescription: "Test Sample Description 4",
+    sampleIdentificationNo: "qwert4",
+    quantitySizeWeight: 2,
+    noOfTestRequired: 4,
+    TestMethodProtocolUsed: "zxc protocol",
   },
-  toolbar: {
-    flexWrap: "wrap",
+  {
+    sampleDescription: "Test Sample Description 5",
+    sampleIdentificationNo: "qwert5",
+    quantitySizeWeight: 2,
+    noOfTestRequired: 4,
+    TestMethodProtocolUsed: "zxc method",
   },
-  toolbarTitle: {
-    flexGrow: 1,
+  {
+    sampleDescription: "Test Sample Description 6",
+    sampleIdentificationNo: "qwert6",
+    quantitySizeWeight: 1,
+    noOfTestRequired: 4,
+    TestMethodProtocolUsed: "zxc protocol",
   },
-  link: {
-    margin: theme.spacing(1, 1.5),
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    width: 51,
-    height: 50,
-  },
-  submit: {
-    textAlign: "center",
-  },
-}));
+];
 
 class JobReview extends React.Component<any, any> {
   render() {
@@ -185,7 +205,11 @@ class JobReview extends React.Component<any, any> {
           </Grid>
         </Grid>
         <br />
-        <TestPlanList />
+        <EditableTable
+          title="Sample Receipt cum Job Review Form"
+          columns={columns}
+          data = {data}
+        />
         <ul>
           <li>
             Customer requirements have been completely reviewed, and lab is

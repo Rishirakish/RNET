@@ -40,7 +40,7 @@ class Login extends React.Component<LoginProps, LoginState> {
   };
   render() {
     if(this.props.success){
-      return <Redirect to={"/dashboard"}/>
+      return <Redirect to={"/"}/>
     }
     return (
       <React.Fragment>

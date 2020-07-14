@@ -41,13 +41,15 @@
   border-bottom: 1px solid #ccc;
   outline: none;
   width: 400px;
+  
 }
 
 .react-dropdown-tree-select .dropdown {
   position: relative;
   display: table;
-
- 
+  
+  margin-top: 100px;
+  margin-left: 60px;
 
   
   /* align-content: baseline; */
@@ -74,6 +76,7 @@
   border-top: 1px solid rgba(0,0,0,.05);
   box-shadow: 0 5px 8px rgba(0,0,0,.15);
   width: 100%;
+ 
 }
 
 .react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.bottom:after {
