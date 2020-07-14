@@ -6,4 +6,9 @@
     <AssemblyName>TestingAndCalibrationLabs.FrontOffice.Infrastructure</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TestingAndCalibrationLabs.FrontOffice.Core\TestingAndCalibrationLabs.FrontOffice.Core.csproj" />
+    <ProjectReference Include="..\TestingAndCalibrationLabs.FrontOffice.SharedKernel\TestingAndCalibrationLabs.FrontOffice.SharedKernel.csproj" />
+  </ItemGroup>
+
 </Project>
