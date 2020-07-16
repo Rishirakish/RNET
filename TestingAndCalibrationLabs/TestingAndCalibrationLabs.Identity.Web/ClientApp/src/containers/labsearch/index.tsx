@@ -1,21 +1,20 @@
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import React, { useState } from "react";
+import React from "react";
 import DropdownTreeSelect from "react-dropdown-tree-select";
 import "react-dropdown-tree-select/dist/styles.css";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Header from "../../components/header";
+import IAppState from "../../stores/common/state";
+import {
+  ITestCategoryState,
+  TestCategoryArgs,
+} from "../../stores/testsearch/type";
 import data from "./data.json";
 import "./index.css";
-import Paper from "@material-ui/core/Paper";
-import Table from "@material-ui/core/Table";
-import { TableBody, TableRow } from "@material-ui/core";
-import IAppState from "../../stores/common/state";
-import { connect } from "react-redux";
-
-
-
+import { addCategory } from "../../stores/testsearch/action";
 
 const assignObjectPaths = (obj: { [x: string]: any }, stack: any) => {
   Object.keys(obj).forEach((k) => {
@@ -74,29 +73,38 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export class TestSearch extends React.Component<any, any> {
+type AddTestCategoryDispatchProps = {
+  addTestCategory: (param: TestCategoryArgs) => void;
+};
+
+type Props = AddTestCategoryDispatchProps & ITestCategoryState;
+type State = TestCategoryArgs;
+
+export class TestSearch extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
-    this.state={
-      category:"Pragya",
-      data:data
-
-    }
+    this.state = {
+      category: "",
+    };
   }
 
-   onChange = (currentNode: any, selectedNodes: any) => {
+  onChange = (currentNode: any, selectedNodes: any) => {
     console.log("onChange::", selectedNodes[0]);
     // this.setState({
     //   category:selectedNodes[0].label
     // })
+    var args: TestCategoryArgs = {
+      category : selectedNodes[0].label
+    };
+    this.props.addTestCategory(args);
   };
 
-   onAction = (node: any, action: any) => {
-    console.log("onAction::", action, node);
+  onAction = (node: any, action: any) => {
+   // console.log("onAction::", action, node);
   };
 
-   onNodeToggle = (currentNode: any) => {
-    console.log("onNodeToggle::", currentNode);
+  onNodeToggle = (currentNode: any) => {
+   // console.log("onNodeToggle::", currentNode);
   };
 
   render() {
@@ -104,18 +112,36 @@ export class TestSearch extends React.Component<any, any> {
       <React.Fragment>
         <Header />
         <div style={{ height: window.innerHeight }}>
+          <Grid
+            container
+            item
+            xs={12}
+            sm={12}
+            alignItems="flex-end"
+            justify="flex-end"
+            direction="row"
+          >
+            <NavLink to="/jobReview" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                style={{ margin: 12 }}
+              >
+                Next
+              </Button>
+            </NavLink>
+          </Grid>
           <Grid container spacing={3}>
             <Grid item xs={6}>
               <DropdownTreeSelect
-                data={this.state.data}
+                data={data}
                 //className="tag-item .search react-dropdown-tree-select .dropdown .dropdown-trigger .dropdown-content"
                 onChange={this.onChange}
                 texts={{
                   placeholder: "Select Test Category",
                 }}
-                 showDropdown="initial"
-                 keepOpenOnSelect={true}
-                 keepChildrenOnSearch={true}
+                keepOpenOnSelect={true}
+                keepChildrenOnSearch={true}
                 keepTreeOnSearch={true}
                 showPartiallySelected={true}
                 onAction={this.onAction}
@@ -123,7 +149,7 @@ export class TestSearch extends React.Component<any, any> {
               />
             </Grid>
             <Grid item xs={6}>
-              {this.state.category}
+              {this.props.category}
               {/* <Table>
                 <TableBody>
                   <TableRow>vdfds</TableRow>
@@ -131,18 +157,6 @@ export class TestSearch extends React.Component<any, any> {
               </Table> */}
             </Grid>
             <Grid item xs={2}></Grid>
-            <Grid item xs={6}>
-              <NavLink to="/testplan" style={{ textDecoration: "none" }}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  color="primary"
-                  style={{ textAlign: "center" }}
-                >
-                  Next
-                </Button>
-              </NavLink>
-            </Grid>
           </Grid>
         </div>
       </React.Fragment>
@@ -151,13 +165,19 @@ export class TestSearch extends React.Component<any, any> {
 }
 
 export function mapStateToProps(state: IAppState) {
-  console.log(state);
-  //initErrorMessage(state.authState);
-  return state.authState;
+  console.log("Test search state = "+JSON.stringify(state.testSearchState.category));
+  //cat : state.testSearchState.category
+  
 }
 
+// const mapStateToProps = (state:IAppState) => ({
+//   category:state.testSearchState.category
+// })
+
 export function mapDispatchToProps(dispatch: any) {
-  return {};
+  return {
+    addTestCategory: (args: TestCategoryArgs) => dispatch(addCategory(args)),
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestSearch);

@@ -1,4 +1,5 @@
 import { ILoginState } from "../auth/type";
+import { ITestCategoryState } from "../testsearch/type";
 
 export interface CommonState {
 	code: string;
@@ -11,7 +12,8 @@ export interface CommonState {
 export default interface IAppState {
 	authState: ILoginState;
 	settings:any;
-	router: any
+	router: any;
+	testSearchState:ITestCategoryState;
 
 
 }

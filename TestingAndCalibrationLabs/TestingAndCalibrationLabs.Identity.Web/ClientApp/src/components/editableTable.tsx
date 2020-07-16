@@ -113,6 +113,9 @@ export default function EditableTable(props: any) {
           color: "#000"
         },
       }}
+      style={{
+        overflowX: 'auto'
+      }}
     />
   );
 }

@@ -11,7 +11,6 @@ import Button from "@material-ui/core/Button";
 import { NavLink } from "react-router-dom";
 import EditableTable from "../../components/editableTable";
 
-
 const columns = [
   { title: "Sample Description", field: "sampleDescription" },
   { title: "Sample Identification No", field: "sampleIdentificationNo" },
@@ -77,15 +76,24 @@ class JobReview extends React.Component<any, any> {
         {/* <Typography variant="h5" gutterBottom className={classes.title}>
           GLOBAL TESTING & RESEARCH LABORATORY
         </Typography> */}
-        <Grid container item xs={12} spacing={3} style={{ margin: 0 }}>
-          <Grid item xs={12} sm={9}>
-            <Typography variant="h6">Job Serial No: QWERTASDFG </Typography>
+        <Grid container spacing={1} style={{marginTop:10}}>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="jobSerialNo"
+              name="jobSerialNo"
+              label="Job Serial No:"
+              fullWidth
+              autoComplete="Job Serial No"
+              variant="outlined"
+            />
+            {/* <Typography variant="h6">Job Serial No: QWERTASDFG</Typography> */}
           </Grid>
           <Grid
             container
             item
             xs={12}
-            sm={3}
+            sm={6}
             alignItems="flex-end"
             justify="flex-end"
             direction="row"
@@ -96,33 +104,47 @@ class JobReview extends React.Component<any, any> {
               </Button>
             </NavLink>
           </Grid>
-          <Grid container spacing={1}>
-            <Grid item xs={12} sm={3}>
-              <TextField
-                required
-                id="departmentSendingSample"
-                name="departmentSendingSample"
-                label="Department Sending Sample:"
-                fullWidth
-                autoComplete="departmentSendingSample"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={9}>
-              <TextField
-                required
-                id="customerNameAndAddress"
-                name="customerNameAndAddress"
-                label="Customer Name and Address:"
-                fullWidth
-                autoComplete="customerNameAndAddress"
-                variant="outlined"
-                multiline
-                rowsMax={3}
-              />
-            </Grid>
-            <Grid item xs={12} sm={3}>
-              {/* <TextField
+
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="departmentSendingSample"
+              name="departmentSendingSample"
+              label="Department Name:"
+              fullWidth
+              autoComplete="departmentSendingSample"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="customerName"
+              name="customerName"
+              label="Customer Name"
+              fullWidth
+              autoComplete="customerName"
+              variant="outlined"
+              multiline
+              rowsMax={3}
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              required
+              id="issueTo"
+              name="issueTo"
+              label="Issue To"
+              fullWidth
+              autoComplete="issueTo"
+              variant="outlined"
+              multiline
+              rowsMax={3}
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            {/* <TextField
               required
               id="receivedOn"
               name="receivedOn"
@@ -132,83 +154,94 @@ class JobReview extends React.Component<any, any> {
               variant="outlined"
               type="date"
             /> */}
-              <TextField
-                id="receivedOn"
-                name="receivedOn"
-                label="Received On:"
-                type="date"
-                defaultValue="2017-05-24"
-                fullWidth
-                autoComplete="received On:"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={3}>
-              <TextField
-                required
-                id="jobOrderNo"
-                name="jobOrderNo"
-                label="Job Order No. / Ref No:"
-                fullWidth
-                autoComplete="jobOrderNo"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={3}>
-              <TextField
-                required
-                id="responsibleAuthority"
-                name="responsibleAuthority"
-                label="Responsible Authority:"
-                fullWidth
-                autoComplete="Responsible Authority"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={3}>
-              <TextField
-                required
-                id="requestForTestingOf"
-                name="requestForTestingOf"
-                label="Sub: Request for testing of:"
-                fullWidth
-                autoComplete="requestForTestingOf"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={3}>
-              <TextField
-                required
-                id="testReportReleaseDate"
-                name="testReportReleaseDate"
-                label="Test Report Release Date:"
-                fullWidth
-                autoComplete="testReportReleaseDate"
-                type="date"
-                defaultValue="2017-05-24"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={12} sm={9}>
-              <TextField
-                required
-                id="anyOtherSpecificRequirement"
-                name="anyOtherSpecificRequirement"
-                label="Any other specific requirement:"
-                fullWidth
-                autoComplete="anyOtherSpecificRequirement"
-                variant="outlined"
-                multiline
-                rowsMax={3}
-              />
-            </Grid>
+            <TextField
+              id="receivedOn"
+              name="receivedOn"
+              label="Received On:"
+              type="date"
+              defaultValue="2017-05-24"
+              fullWidth
+              autoComplete="received On:"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="jobOrderNo"
+              name="jobOrderNo"
+              label="Job Order No. / Ref No:"
+              fullWidth
+              autoComplete="jobOrderNo"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="contactPersonName"
+              name="contactPersonName"
+              label="Contact Person Name:"
+              fullWidth
+              autoComplete="Contact Person Name"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="mobileNumber"
+              name="mobileNumber"
+              label="Mobile Number:"
+              fullWidth
+              autoComplete="Mobile Number"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <TextField
+              required
+              id="testReportReleaseDate"
+              name="testReportReleaseDate"
+              label="Test Report Release Date:"
+              fullWidth
+              autoComplete="testReportReleaseDate"
+              type="date"
+              defaultValue="2017-05-24"
+              variant="outlined"
+            />
+          </Grid>
+          <Grid item xs={12} sm={9}>
+            <TextField
+              required
+              id="anyOtherSpecificRequirement"
+              name="anyOtherSpecificRequirement"
+              label="Any other specific requirement:"
+              fullWidth
+              autoComplete="anyOtherSpecificRequirement"
+              variant="outlined"
+              multiline
+              rowsMax={3}
+            />
+          </Grid>
+
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="testingMaterial"
+              name="testingMaterial"
+              label="Testing Material:"
+              fullWidth
+              autoComplete="Testing Material"
+              variant="outlined"
+            />
           </Grid>
         </Grid>
         <br />
         <EditableTable
           title="Sample Receipt cum Job Review Form"
           columns={columns}
-          data = {data}
+          data={data}
         />
         <ul>
           <li>

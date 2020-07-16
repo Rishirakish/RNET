@@ -1,17 +1,40 @@
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import React from 'react';
-import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import React from "react";
+import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-import EditableTable from '../../components/editableTable';
-import Header from '../../components/header';
-import IAppState from '../../stores/common/state';
-
+import EditableTable from "../../components/editableTable";
+import Header from "../../components/header";
+import IAppState from "../../stores/common/state";
 
 const columns = [
+  {
+    title: "Sample Type",
+    field: "sampleType",
+  },
+  {
+    title: "Sample Details",
+    field: "sampleDetails",
+  },
+  {
+    title: "Date of TP",
+    field: "dateTp",
+  },
+  {
+    title: "Job Code No",
+    field: "jobCodeNo",
+  },
+  {
+    title: "Sample Id",
+    field: "sampleId",
+  },
+  {
+    title: "Number of Samples/Quantity",
+    field: "quantity",
+  },
   {
     title: "Test Name",
     field: "TestName",
@@ -26,6 +49,7 @@ const columns = [
 
 const data = [
   {
+    sampleType:"testing sample",
     TestName: "Material test 1",
     TestMethod: "Material Strength",
     PersonAuthorized: "Rishi",
@@ -64,7 +88,7 @@ class TestPlan extends React.Component<any, any> {
         </Typography> */}
         <Grid container item xs={12} spacing={3} style={{ margin: 0 }}>
           <Grid item xs={12} sm={9}>
-            <Typography variant="h6">JOB.S. NO: 1234 </Typography>
+            <Typography variant="h6">Job Serial No: QWERTASDFG</Typography>
           </Grid>
 
           <Grid
@@ -76,7 +100,7 @@ class TestPlan extends React.Component<any, any> {
             justify="flex-end"
             direction="row"
           >
-            <NavLink to="/jobReviewForm" style={{ textDecoration: "none" }}>
+            <NavLink to="/jobReview" style={{ textDecoration: "none" }}>
               <Button variant="contained" color="primary">
                 Next
               </Button>
@@ -146,7 +170,7 @@ class TestPlan extends React.Component<any, any> {
               required
               id="sampleNo"
               name="sampleNo"
-              label="Sample No:"
+              label="Number of Samples / Quantity:"
               fullWidth
               autoComplete="sampleNo"
               variant="outlined"
