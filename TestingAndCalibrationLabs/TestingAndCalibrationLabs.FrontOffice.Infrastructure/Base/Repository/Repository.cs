@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using TestingAndCalibrationLabs.FrontOffice.Core;
 
 namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
@@ -86,7 +87,7 @@ namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
 
         public virtual Task Add(TEntity entity)
         {
-            TEntity data =  _dbContext.Set<TEntity>().Add(entity);
+            EntityEntry<TEntity> data = _dbContext.Set<TEntity>().Add(entity);
             return Task.FromResult(data);
         }
 

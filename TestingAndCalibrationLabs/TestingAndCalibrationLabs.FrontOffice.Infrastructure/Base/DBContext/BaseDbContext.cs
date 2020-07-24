@@ -3,15 +3,15 @@
  * Also common configuration that is applicable to whole database table should go here.
  */
 
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
 {
     public abstract class BaseDbContext : DbContext
     {
-        protected BaseDbContext(string connectionString) : base(connectionString)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=RNET;Persist Security Info=True;User ID=sa;Password=Rsa@2bsafe;MultipleActiveResultSets=True");
         }
     }
 }

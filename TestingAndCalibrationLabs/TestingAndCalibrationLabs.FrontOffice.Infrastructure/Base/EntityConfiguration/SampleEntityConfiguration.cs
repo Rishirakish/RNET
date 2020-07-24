@@ -1,17 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TestingAndCalibrationLabs.FrontOffice.Core;
 
 namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
 {
-    internal class SampleEntityConfiguration : BaseEntityConfiguration<SampleEntity>
+    internal class SampleEntityConfiguration : IBaseEntityConfiguration<SampleEntity>
     {
-        public SampleEntityConfiguration()
+       public void Configure(EntityTypeBuilder<SampleEntity> builder)
         {
-            ToTable("SampleTable");
-            Property(p => p.Name)
+            builder.ToTable("SampleTable");
+            builder.Property(p => p.Name)
                 .HasMaxLength(50);
-            Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            HasKey(p => p.Id);
+            builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.HasKey(p => p.Id);
         }
     }
 }
