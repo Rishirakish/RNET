@@ -1,11 +1,9 @@
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-
 import EditableTable from "../../components/editableTable";
 import Header from "../../components/header";
 import IAppState from "../../stores/common/state";
@@ -105,76 +103,6 @@ class TestPlan extends React.Component<any, any> {
                 Next
               </Button>
             </NavLink>
-          </Grid>
-        </Grid>
-        <Grid container spacing={1}>
-          <Grid item xs={12} sm={3}>
-            <TextField
-              required
-              id="sampleType"
-              name="sampleType"
-              label="Sample Type"
-              fullWidth
-              autoComplete="Sample Type"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={9}>
-            <TextField
-              required
-              id="sampleDetails"
-              name="sampleDetails"
-              label="Sample Details"
-              fullWidth
-              autoComplete="Sample Details"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <TextField
-              required
-              id="dateOfTp"
-              name="dateOfTp"
-              label="Date of TP"
-              fullWidth
-              autoComplete="dateOfTp"
-              type="date"
-              defaultValue="2017-05-24"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <TextField
-              required
-              id="jobCode"
-              name="jobCode"
-              label="Job Code No:"
-              fullWidth
-              autoComplete="jobCode"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <TextField
-              required
-              id="sampleID"
-              name="sampleID"
-              label="Sample ID:"
-              fullWidth
-              autoComplete="sampleID"
-              variant="outlined"
-            />
-          </Grid>
-          <Grid item xs={12} sm={3}>
-            <TextField
-              required
-              id="sampleNo"
-              name="sampleNo"
-              label="Number of Samples / Quantity:"
-              fullWidth
-              autoComplete="sampleNo"
-              variant="outlined"
-            />
           </Grid>
         </Grid>
         <br />

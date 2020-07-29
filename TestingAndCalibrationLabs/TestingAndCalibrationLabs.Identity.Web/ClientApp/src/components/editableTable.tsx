@@ -18,6 +18,10 @@ import Remove from "@material-ui/icons/Remove";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
+import Popup from "reactjs-popup";
+import TestPlanPopup from "../components/testPlanPopup";
+import { Dialog, DialogTitle, DialogContent, Grid, TextField, DialogActions, Button } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 
 type props = {
   title?: string;
@@ -36,7 +40,17 @@ export default function EditableTable(props: any) {
       columns={props.columns}
       data={props.data}
       icons={{
-        Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+        // Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+        Add: forwardRef((props, ref) => <Popup trigger={<AddBox {...props} ref={ref} />} modal>
+           {close => (
+            <div className="modal">
+              <br/>
+              <div className="header"> Test Plan </div>
+              <br/>
+              <TestPlanPopup />
+            </div>
+            )}
+         </Popup>),
         Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
         Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
         Delete: forwardRef((props, ref) => (
