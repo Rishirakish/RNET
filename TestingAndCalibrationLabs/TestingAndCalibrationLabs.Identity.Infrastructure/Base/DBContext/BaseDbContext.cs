@@ -9,9 +9,13 @@ namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public abstract class BaseDbContext : DbContext
     {
+        protected BaseDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        {
+            
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=RNET;Persist Security Info=True;User ID=sa;Password=Rsa@2bsafe;MultipleActiveResultSets=True");
+           // optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=RNET;Persist Security Info=True;User ID=sa;Password=Rsa@2bsafe;MultipleActiveResultSets=True");
         }
     }
 }

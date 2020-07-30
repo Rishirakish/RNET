@@ -14,5 +14,9 @@ namespace TestingAndCalibrationLabs.Identity.Infrastructure
         {
             modelBuilder.ApplyConfiguration(new SampleEntityConfiguration());
         }
+
+        public ApplicationDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        {
+        }
     }
 }

@@ -3,8 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using TestingAndCalibrationLabs.FrontOffice.Core;
-using TestingAndCalibrationLabs.FrontOffice.RestApi;
+using TestingAndCalibrationLabs.Identity.Core;
+using TestingAndCalibrationLabs.Identity.RestApi;
 
 namespace TestingAndCalibrationLabs.Identity.RestApi
 {
