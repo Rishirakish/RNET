@@ -1,6 +1,6 @@
 using System;
 
-namespace TestingAndCalibrationLabs.Identity.RestApi
+namespace TestingAndCalibrationLabs.FrontOffice.RestApi
 {
     public class WeatherForecast
     {

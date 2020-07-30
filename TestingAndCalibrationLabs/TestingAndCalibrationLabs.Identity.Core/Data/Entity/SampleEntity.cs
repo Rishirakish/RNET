@@ -1,6 +1,6 @@
-﻿namespace TestingAndCalibrationLabs.FrontOffice.RestApi
+﻿namespace TestingAndCalibrationLabs.FrontOffice.Core
 {
-    public class SampleResponse
+    public class SampleEntity : Entity
     {
         public string Name { get; set; }
         public int Price { get; set; }

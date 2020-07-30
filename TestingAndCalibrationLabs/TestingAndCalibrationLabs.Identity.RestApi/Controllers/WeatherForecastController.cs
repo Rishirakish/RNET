@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace TestingAndCalibrationLabs.Identity.RestApi.Controllers
+namespace TestingAndCalibrationLabs.FrontOffice.RestApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

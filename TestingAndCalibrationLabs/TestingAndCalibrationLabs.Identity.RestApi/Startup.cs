@@ -1,17 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TestingAndCalibrationLabs.Identity.Core.Interfaces.Repository;
-using TestingAndCalibrationLabs.Identity.Core.Interfaces.Service;
-using TestingAndCalibrationLabs.Identity.Infrastructure.DBContext;
-using TestingAndCalibrationLabs.Identity.Infrastructure.Repository;
-using TestingAndCalibrationLabs.Identity.Infrastructure.Service;
-using TestingAndCalibrationLabs.Identity.Infrastructure.UnitOfWork;
-using TestingAndCalibrationLabs.Identity.SharedKernel.Base.UnitOfWork;
+using Microsoft.Extensions.Logging;
+using TestingAndCalibrationLabs.FrontOffice.Core;
+using TestingAndCalibrationLabs.FrontOffice.Infrastructure;
 
-namespace TestingAndCalibrationLabs.Identity.RestApi
+namespace TestingAndCalibrationLabs.FrontOffice.RestApi
 {
     public class Startup
     {
@@ -27,12 +30,17 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
         {
             services.AddControllers();
 
-            // Used build it DI container
-            // TODO: To evaluate autofac or structuremap DI container and do the necessary changes
-            services.AddScoped<IUnitOfWork<SampleDbContext>, UnitOfWork<SampleDbContext>>();
-            services.AddScoped<SampleDbContext, SampleDbContext>();
-            services.AddScoped<ISampleRepository, SampleRepository>();
+            // Db context
+            services.AddScoped<BaseDbContext, ApplicationDbContext>();
+
+            // Unit of work and repository setup
+            services.AddScoped<IUnitOfWork<SampleEntity>, UnitOfWork<SampleEntity>>();
+
+            //services
             services.AddScoped<ISampleService, SampleService>();
+
+            // Mappers
+            services.AddAutoMapper(typeof(MappingProfile));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
