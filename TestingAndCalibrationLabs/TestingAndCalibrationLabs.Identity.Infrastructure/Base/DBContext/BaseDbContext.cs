@@ -3,11 +3,13 @@
  * Also common configuration that is applicable to whole database table should go here.
  */
 
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
 
 namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
-    public abstract class BaseDbContext : DbContext
+    public abstract class BaseDbContext : IdentityDbContext<User, Role, string, UserClaim, UserRole, UserLogin,RoleClaim, UserToken>
     {
         protected BaseDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
         {

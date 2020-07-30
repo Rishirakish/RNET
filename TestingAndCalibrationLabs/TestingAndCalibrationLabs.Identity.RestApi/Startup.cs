@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TestingAndCalibrationLabs.Identity.Core;
+using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
 using TestingAndCalibrationLabs.Identity.Infrastructure;
 
 namespace TestingAndCalibrationLabs.Identity.RestApi
@@ -38,6 +40,11 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
             // Db context
             services.AddScoped<BaseDbContext, ApplicationDbContext>();
 
+            //Identity
+            services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
             // Unit of work and repository setup
             services.AddScoped<IUnitOfWork<SampleEntity>, UnitOfWork<SampleEntity>>();
 
@@ -59,6 +66,8 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
