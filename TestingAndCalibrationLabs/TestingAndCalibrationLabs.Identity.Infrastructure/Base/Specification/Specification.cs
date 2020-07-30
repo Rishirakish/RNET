@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using TestingAndCalibrationLabs.Identity.Core;
 
 // Specification Pattern from : https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-implemenation-entity-framework-core
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public abstract class Specification<T> : ISpecification<T>
     {
