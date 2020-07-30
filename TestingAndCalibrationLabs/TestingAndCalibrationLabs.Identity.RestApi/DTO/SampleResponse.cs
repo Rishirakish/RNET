@@ -1,4 +1,4 @@
-﻿namespace TestingAndCalibrationLabs.FrontOffice.RestApi
+﻿namespace TestingAndCalibrationLabs.Identity.RestApi
 {
     public class SampleResponse
     {

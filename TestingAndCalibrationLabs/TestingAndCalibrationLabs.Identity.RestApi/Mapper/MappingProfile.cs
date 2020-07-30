@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using TestingAndCalibrationLabs.FrontOffice.Core;
 
-namespace TestingAndCalibrationLabs.FrontOffice.RestApi
+namespace TestingAndCalibrationLabs.Identity.RestApi
 {
     public class MappingProfile : Profile
     {

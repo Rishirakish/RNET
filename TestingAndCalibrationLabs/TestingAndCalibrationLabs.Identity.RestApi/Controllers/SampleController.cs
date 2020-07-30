@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TestingAndCalibrationLabs.FrontOffice.Core;
+using TestingAndCalibrationLabs.FrontOffice.RestApi;
 
-namespace TestingAndCalibrationLabs.FrontOffice.RestApi
+namespace TestingAndCalibrationLabs.Identity.RestApi
 {
     [ApiController]
     [Route("[controller]")]

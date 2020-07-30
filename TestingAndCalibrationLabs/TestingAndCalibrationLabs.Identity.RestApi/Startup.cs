@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 using TestingAndCalibrationLabs.FrontOffice.Core;
 using TestingAndCalibrationLabs.FrontOffice.Infrastructure;
 
-namespace TestingAndCalibrationLabs.FrontOffice.RestApi
+namespace TestingAndCalibrationLabs.Identity.RestApi
 {
     public class Startup
     {
