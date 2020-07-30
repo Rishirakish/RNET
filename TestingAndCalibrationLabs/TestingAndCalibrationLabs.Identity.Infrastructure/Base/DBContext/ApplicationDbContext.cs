@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TestingAndCalibrationLabs.FrontOffice.Core;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public class ApplicationDbContext : BaseDbContext
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Core
+namespace TestingAndCalibrationLabs.Identity.Core
 {
     /// <summary>
     /// This helps to implement paging and querying the database.

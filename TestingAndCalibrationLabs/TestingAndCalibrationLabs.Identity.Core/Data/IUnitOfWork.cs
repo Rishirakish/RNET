@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Core
+namespace TestingAndCalibrationLabs.Identity.Core
 {
     public interface IUnitOfWork<TEntity>: IDisposable where TEntity : class, IEntityBase //, DbContext
     {

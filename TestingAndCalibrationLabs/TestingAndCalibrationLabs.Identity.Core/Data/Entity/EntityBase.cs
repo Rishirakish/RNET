@@ -1,4 +1,4 @@
-﻿namespace TestingAndCalibrationLabs.FrontOffice.Core
+﻿namespace TestingAndCalibrationLabs.Identity.Core
 {
     public abstract class EntityBase<TId> : IEntityBase
     {

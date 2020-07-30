@@ -5,7 +5,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public abstract class BaseDbContext : DbContext
     {

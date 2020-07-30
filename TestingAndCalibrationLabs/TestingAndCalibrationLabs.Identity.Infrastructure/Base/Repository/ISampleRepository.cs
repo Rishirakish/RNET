@@ -1,6 +1,6 @@
-﻿using TestingAndCalibrationLabs.FrontOffice.Core;
+﻿using TestingAndCalibrationLabs.Identity.Core;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public interface ISampleRepository : IRepository<SampleEntity>
     {

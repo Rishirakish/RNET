@@ -5,9 +5,9 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using TestingAndCalibrationLabs.FrontOffice.Core;
+using TestingAndCalibrationLabs.Identity.Core;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntityBase
     {

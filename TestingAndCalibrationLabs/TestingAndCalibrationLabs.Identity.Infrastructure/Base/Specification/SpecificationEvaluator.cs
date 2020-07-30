@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using TestingAndCalibrationLabs.FrontOffice.Core;
+using TestingAndCalibrationLabs.Identity.Core;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public class SpecificationEvaluator<T> where T : class
     {

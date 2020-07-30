@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TestingAndCalibrationLabs.FrontOffice.Core;
+using TestingAndCalibrationLabs.Identity.Core;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     /// <summary>
     /// This is the base entity configuration which inherits EntityTypeConfiguration

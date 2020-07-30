@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Core
+namespace TestingAndCalibrationLabs.Identity.Core
 {
     public interface ISampleService
     {

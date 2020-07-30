@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public class Disposable : IDisposable
     {

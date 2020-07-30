@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TestingAndCalibrationLabs.FrontOffice.Core;
+using TestingAndCalibrationLabs.Identity.Core;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     internal class SampleEntityConfiguration : IBaseEntityConfiguration<SampleEntity>
     {

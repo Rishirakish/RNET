@@ -1,4 +1,4 @@
-﻿namespace TestingAndCalibrationLabs.FrontOffice.Core
+﻿namespace TestingAndCalibrationLabs.Identity.Core
 {
     /// <summary>
     /// This is the base class for all the entity we create.

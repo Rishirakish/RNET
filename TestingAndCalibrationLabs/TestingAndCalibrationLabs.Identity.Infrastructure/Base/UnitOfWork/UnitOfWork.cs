@@ -4,9 +4,9 @@
 
 
 using System.Threading.Tasks;
-using TestingAndCalibrationLabs.FrontOffice.Core;
+using TestingAndCalibrationLabs.Identity.Core;
 
-namespace TestingAndCalibrationLabs.FrontOffice.Infrastructure
+namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
     public class UnitOfWork<TEntity> : Disposable, IUnitOfWork<TEntity> where TEntity : class, IEntityBase
     {
