@@ -7,9 +7,9 @@ using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
 
 namespace TestingAndCalibrationLabs.Identity.Infrastructure.Base.EntityConfiguration
 {
-    internal class UserRoleConfiguration : IBaseEntityConfiguration<Role>
+    internal class UserRoleConfiguration : IBaseEntityConfiguration<UserRole>
     {
-        public void Configure(EntityTypeBuilder<Role> builder)
+        public void Configure(EntityTypeBuilder<UserRole> builder)
         {
             builder.ToTable("UserRole");
         }

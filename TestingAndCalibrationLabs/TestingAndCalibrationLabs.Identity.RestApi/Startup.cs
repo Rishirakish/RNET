@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using TestingAndCalibrationLabs.Identity.Core;
 using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
+using TestingAndCalibrationLabs.Identity.Core.Service;
 using TestingAndCalibrationLabs.Identity.Infrastructure;
 
 namespace TestingAndCalibrationLabs.Identity.RestApi
@@ -50,6 +51,7 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
 
             //services
             services.AddScoped<ISampleService, SampleService>();
+            services.AddScoped<IUserService, UserService>();
 
             // Mappers
             services.AddAutoMapper(typeof(MappingProfile));
