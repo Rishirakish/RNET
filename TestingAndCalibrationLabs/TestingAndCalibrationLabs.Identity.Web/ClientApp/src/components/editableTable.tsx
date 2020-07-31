@@ -20,7 +20,15 @@ import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import Popup from "reactjs-popup";
 import TestPlanPopup from "../components/testPlanPopup";
-import { Dialog, DialogTitle, DialogContent, Grid, TextField, DialogActions, Button } from "@material-ui/core";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  Grid,
+  TextField,
+  DialogActions,
+  Button,
+} from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 
 type props = {
@@ -35,101 +43,141 @@ export default function EditableTable(props: any) {
   });
 
   return (
-    <MaterialTable
-      title={props.title}
-      columns={props.columns}
-      data={props.data}
-      icons={{
-        // Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
-        Add: forwardRef((props, ref) => <Popup trigger={<AddBox {...props} ref={ref} />} modal>
-           {close => (
-            <div className="modal">
-              <br/>
-              <div className="header"> Test Plan </div>
-              <br/>
-              <TestPlanPopup />
-            </div>
-            )}
-         </Popup>),
-        Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
-        Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-        Delete: forwardRef((props, ref) => (
-          <DeleteOutline {...props} ref={ref} />
-        )),
-        DetailPanel: forwardRef((props, ref) => (
-          <ChevronRight {...props} ref={ref} />
-        )),
-        Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
-        Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
-        Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref} />),
-        FirstPage: forwardRef((props, ref) => (
-          <FirstPage {...props} ref={ref} />
-        )),
-        LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref} />),
-        NextPage: forwardRef((props, ref) => (
-          <ChevronRight {...props} ref={ref} />
-        )),
-        PreviousPage: forwardRef((props, ref) => (
-          <ChevronLeft {...props} ref={ref} />
-        )),
-        ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
-        Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
-        SortArrow: forwardRef((props, ref) => (
-          <ArrowDownward {...props} ref={ref} />
-        )),
-        ThirdStateCheck: forwardRef((props, ref) => (
-          <Remove {...props} ref={ref} />
-        )),
-        ViewColumn: forwardRef((props, ref) => (
-          <ViewColumn {...props} ref={ref} />
-        )),
-      }}
-      editable={{
-        onRowAdd: (newData) =>
-          new Promise((resolve) => {
-            setTimeout(() => {
-              resolve();
-              setState((prevState) => {
-                const data = [...prevState.data];
-                data.push(newData);
-                return { ...prevState, data };
-              });
-            }, 600);
-          }),
-        onRowUpdate: (newData, oldData) =>
-          new Promise((resolve) => {
-            setTimeout(() => {
-              resolve();
-              if (oldData) {
+    <>
+      <MaterialTable
+        title={props.title}
+        columns={props.columns}
+        data={props.data}
+        actions={[
+          {
+            icon: "add",
+            tooltip: "Add Test",
+            isFreeAction: true,
+            onClick: (event, rowData) => {
+              // <Popup trigger={<AddBox />} modal>
+              //   {(close) => (
+              //     <div className="modal">
+              //       <br />
+              //       <div className="header"> Test Plan </div>
+              //       <br />
+              //       <TestPlanPopup />
+              //     </div>
+              //   )}
+              // </Popup>;
+            },
+          },
+        ]}
+        icons={{
+          // Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+          Add: forwardRef((props, ref) => (
+            <Popup trigger={<AddBox />} modal>
+              {(close) => (
+                <div className="modal">
+                  <br />
+                  <div className="header"> Test Plan </div>
+                  <br />
+                  <TestPlanPopup />
+                </div>
+              )}
+            </Popup>
+          )),
+          Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
+          Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
+          Delete: forwardRef((props, ref) => (
+            <DeleteOutline {...props} ref={ref} />
+          )),
+          DetailPanel: forwardRef((props, ref) => (
+            <ChevronRight {...props} ref={ref} />
+          )),
+          Edit: forwardRef((props, ref) => <Edit {...props} ref={ref} />),
+          Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref} />),
+          Filter: forwardRef((props, ref) => (
+            <FilterList {...props} ref={ref} />
+          )),
+          FirstPage: forwardRef((props, ref) => (
+            <FirstPage {...props} ref={ref} />
+          )),
+          LastPage: forwardRef((props, ref) => (
+            <LastPage {...props} ref={ref} />
+          )),
+          NextPage: forwardRef((props, ref) => (
+            <ChevronRight {...props} ref={ref} />
+          )),
+          PreviousPage: forwardRef((props, ref) => (
+            <ChevronLeft {...props} ref={ref} />
+          )),
+          ResetSearch: forwardRef((props, ref) => (
+            <Clear {...props} ref={ref} />
+          )),
+          Search: forwardRef((props, ref) => <Search {...props} ref={ref} />),
+          SortArrow: forwardRef((props, ref) => (
+            <ArrowDownward {...props} ref={ref} />
+          )),
+          ThirdStateCheck: forwardRef((props, ref) => (
+            <Remove {...props} ref={ref} />
+          )),
+          ViewColumn: forwardRef((props, ref) => (
+            <ViewColumn {...props} ref={ref} />
+          )),
+        }}
+        editable={{
+          onRowAdd: (newData) =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve();
                 setState((prevState) => {
                   const data = [...prevState.data];
-                  data[data.indexOf(oldData)] = newData;
+                  data.push(newData);
                   return { ...prevState, data };
                 });
-              }
-            }, 600);
-          }),
-        onRowDelete: (oldData) =>
-          new Promise((resolve) => {
-            setTimeout(() => {
-              resolve();
-              setState((prevState) => {
-                const data = [...prevState.data];
-                data.splice(data.indexOf(oldData), 1);
-                return { ...prevState, data };
-              });
-            }, 600);
-          }),
-      }}
-      options={{
-        headerStyle: {
-          backgroundColor: "#eeeeee",
-          color: "#000"
-        },
-      }}
-      style={{
-        overflowX: 'auto'
-      }}
-    />
+              }, 600);
+            }),
+          onRowUpdate: (newData, oldData) =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve();
+                if (oldData) {
+                  setState((prevState) => {
+                    const data = [...prevState.data];
+                    data[data.indexOf(oldData)] = newData;
+                    return { ...prevState, data };
+                  });
+                }
+              }, 600);
+            }),
+          onRowDelete: (oldData) =>
+            new Promise((resolve) => {
+              setTimeout(() => {
+                resolve();
+                setState((prevState) => {
+                  const data = [...prevState.data];
+                  data.splice(data.indexOf(oldData), 1);
+                  return { ...prevState, data };
+                });
+              }, 600);
+            }),
+        }}
+        options={{
+          headerStyle: {
+            backgroundColor: "#eeeeee",
+            color: "#000",
+          },
+        }}
+        style={{
+          overflowX: "auto",
+        }}
+      />
+
+      <Popup trigger={<AddBox />} modal>
+        {(close) => (
+          <div className="modal">
+            <br />
+            <div className="header"> Test Plan </div>
+            <br />
+            <TestPlanPopup />
+          </div>
+        )}
+      </Popup>
+    </>
   );
 }

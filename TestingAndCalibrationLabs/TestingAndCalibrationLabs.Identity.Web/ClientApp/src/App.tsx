@@ -3,7 +3,12 @@
 import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import JobReviewForm from "./containers/jobreview/index";
 import SignUp from "./containers/auth/signup";
 import TestPlan from "./containers/testplan/index";
@@ -13,9 +18,9 @@ import Dashboard from "./containers/dashboard";
 
 function App(props: any) {
   const { match, location } = props;
-  const isRoot = location.pathname === '/' ? true : false;
+  const isRoot = location.pathname === "/" ? true : false;
   if (isRoot) {
-    return ( <Redirect to={'/dashboard'}/> );
+    return <Redirect to={"/dashboard"} />;
   }
 
   const global = React.createContext("globals");
@@ -30,7 +35,7 @@ function App(props: any) {
                 <Route path={`${match.url}signup`} component={SignUp} />
                 <Route path={`${match.url}testplan`} component={TestPlan} />
                 <Route
-                  path={`${match.url}jobReview`}
+                  path={`${match.url}jobReview/:id`}
                   component={JobReviewForm}
                 />
                 <Route path={`${match.url}search`} component={TestSearch} />

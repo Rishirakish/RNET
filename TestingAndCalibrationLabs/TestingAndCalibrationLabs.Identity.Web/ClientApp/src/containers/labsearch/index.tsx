@@ -94,17 +94,17 @@ export class TestSearch extends React.Component<Props, State> {
     //   category:selectedNodes[0].label
     // })
     var args: TestCategoryArgs = {
-      category : selectedNodes[0].label
+      category: selectedNodes[0].label,
     };
     this.props.addTestCategory(args);
   };
 
   onAction = (node: any, action: any) => {
-   // console.log("onAction::", action, node);
+    // console.log("onAction::", action, node);
   };
 
   onNodeToggle = (currentNode: any) => {
-   // console.log("onNodeToggle::", currentNode);
+    // console.log("onNodeToggle::", currentNode);
   };
 
   render() {
@@ -121,7 +121,7 @@ export class TestSearch extends React.Component<Props, State> {
             justify="flex-end"
             direction="row"
           >
-            <NavLink to="/jobReview" style={{ textDecoration: "none" }}>
+            <NavLink to="/jobReview/${hkk}" style={{ textDecoration: "none" }}>
               <Button
                 variant="contained"
                 color="primary"
@@ -165,9 +165,10 @@ export class TestSearch extends React.Component<Props, State> {
 }
 
 export function mapStateToProps(state: IAppState) {
-  console.log("Test search state = "+JSON.stringify(state.testSearchState.category));
+  console.log(
+    "Test search state = " + JSON.stringify(state.testSearchState.category)
+  );
   //cat : state.testSearchState.category
-  
 }
 
 // const mapStateToProps = (state:IAppState) => ({

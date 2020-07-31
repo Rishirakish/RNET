@@ -47,7 +47,7 @@ const columns = [
 
 const data = [
   {
-    sampleType:"testing sample",
+    sampleType: "testing sample",
     TestName: "Material test 1",
     TestMethod: "Material Strength",
     PersonAuthorized: "Rishi",
@@ -55,8 +55,15 @@ const data = [
     TargetedOn: "7/23/2020",
     CompletedOn: "8/23/2020",
     Remarks: "Some comments or information",
+    sampleDetails: "NA",
+    dateTp: "8/23/2020",
+    jobCodeNo: "5345",
+    sampleId: "45345",
+    quantity: "10",
   },
   {
+    sampleType: "testing sample",
+
     TestName: "Material test 2",
     TestMethod: "Humidity Amount",
     PersonAuthorized: "Sanjay",
@@ -64,8 +71,15 @@ const data = [
     TargetedOn: "6/23/2020",
     CompletedOn: "8/23/2020",
     Remarks: "Some comments or information",
+    sampleDetails: "NA",
+    dateTp: "8/23/2020",
+    jobCodeNo: "5345",
+    sampleId: "45345",
+    quantity: "10",
   },
   {
+    sampleType: "testing sample",
+
     TestName: "Material test 3",
     TestMethod: "Material Strength",
     PersonAuthorized: "Rishi",
@@ -73,6 +87,11 @@ const data = [
     TargetedOn: "7/23/2020",
     CompletedOn: "8/23/2020",
     Remarks: "Some comments or information",
+    sampleDetails: "NA",
+    dateTp: "8/23/2020",
+    jobCodeNo: "5345",
+    sampleId: "45345",
+    quantity: "10",
   },
 ];
 
