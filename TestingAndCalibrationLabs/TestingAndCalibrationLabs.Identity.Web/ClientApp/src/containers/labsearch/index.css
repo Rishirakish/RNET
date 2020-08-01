@@ -31,16 +31,16 @@
 }
 
 .alignCenter {
-  margin-left:100;
+  margin-left:3\00;
   margin-top:50;
   width: 400;
 }
 
 .tag-item .search {
-  border: none;
-  border-bottom: 1px solid #ccc;
-  outline: none;
-  width: 400px;
+   border: none;
+  border-bottom: none;
+  outline: none; 
+  width: 500px;
   
 }
 
@@ -49,7 +49,7 @@
   display: table;
   
   margin-top: 20px;
-  margin-left: 60px;
+  margin-left: 400px;
 
   
   /* align-content: baseline; */
@@ -80,13 +80,13 @@
 }
 
 .react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.bottom:after {
-  content: "\25BC";
+   content: "";
   vertical-align: middle;
-  color: #3c3c3c;
+  /* color: #3c3c3c; */
   margin-right: 2px;
 }
 
-.tag{
+/* .tag{
   display: none;
   list-style: none;
   visibility: hidden;
@@ -95,15 +95,13 @@
 .tag-remove{
   display: none;
   list-style: none;
-}
+} */
 
 .tag-item{
   margin: 0px;
 }
 
-.tag-item .search {
-  border: none;
-  /* border-bottom: 1px solid #ccc; */
-  outline: none;
-  width: 400px;
+
+.react-dropdown-tree-select .dropdown .dropdown-trigger.arrow.top:after{
+  display: none;
 }

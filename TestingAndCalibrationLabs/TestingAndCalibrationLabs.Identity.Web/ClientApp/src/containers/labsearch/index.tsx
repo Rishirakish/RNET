@@ -14,6 +14,7 @@ import {
 } from "../../stores/testsearch/type";
 import data from "./data.json";
 import "./index.css";
+import { InputLabel } from "@material-ui/core";
 import { addCategory } from "../../stores/testsearch/action";
 
 const assignObjectPaths = (obj: { [x: string]: any }, stack: any) => {
@@ -25,6 +26,8 @@ const assignObjectPaths = (obj: { [x: string]: any }, stack: any) => {
     }
   });
 };
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -90,28 +93,21 @@ export class TestSearch extends React.Component<Props, State> {
 
   onChange = (currentNode: any, selectedNodes: any) => {
     console.log("onChange::", selectedNodes[0]);
-    // this.setState({
-    //   category:selectedNodes[0].label
-    // })
-    var args: TestCategoryArgs = {
-      category: selectedNodes[0].label,
-    };
-    this.props.addTestCategory(args);
   };
 
   onAction = (node: any, action: any) => {
-    // console.log("onAction::", action, node);
+     console.log("onAction::", action, node);
   };
 
   onNodeToggle = (currentNode: any) => {
     // console.log("onNodeToggle::", currentNode);
-  };
+  }; 
 
-  render() {
-    return (
+  render() {         
+    return (     
       <React.Fragment>
         <Header />
-        <div style={{ height: window.innerHeight }}>
+        <div style={{ height: window.innerHeight, backgroundColor: "White" }}>
           <Grid
             container
             item
@@ -132,29 +128,26 @@ export class TestSearch extends React.Component<Props, State> {
             </NavLink>
           </Grid>
           <Grid container spacing={3}>
+            
+          <InputLabel style={{ fontSize: "20px", color: "#000000", marginTop: "5%", marginLeft:"420px" }}>Select or Search test categories:</InputLabel>
+              
             <Grid item xs={6}>
               <DropdownTreeSelect
                 data={data}
-                //className="tag-item .search react-dropdown-tree-select .dropdown .dropdown-trigger .dropdown-content"
                 onChange={this.onChange}
                 texts={{
-                  placeholder: "Select Test Category",
+                  placeholder: " ",
                 }}
                 keepOpenOnSelect={true}
                 keepChildrenOnSearch={true}
                 keepTreeOnSearch={true}
                 showPartiallySelected={true}
                 onAction={this.onAction}
-                onNodeToggle={this.onNodeToggle}
+                clearSearchOnChange={true}
               />
             </Grid>
             <Grid item xs={6}>
               {this.props.category}
-              {/* <Table>
-                <TableBody>
-                  <TableRow>vdfds</TableRow>
-                </TableBody>
-              </Table> */}
             </Grid>
             <Grid item xs={2}></Grid>
           </Grid>
@@ -168,12 +161,7 @@ export function mapStateToProps(state: IAppState) {
   console.log(
     "Test search state = " + JSON.stringify(state.testSearchState.category)
   );
-  //cat : state.testSearchState.category
 }
-
-// const mapStateToProps = (state:IAppState) => ({
-//   category:state.testSearchState.category
-// })
 
 export function mapDispatchToProps(dispatch: any) {
   return {
