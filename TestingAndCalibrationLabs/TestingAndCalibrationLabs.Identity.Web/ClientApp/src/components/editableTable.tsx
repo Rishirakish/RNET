@@ -338,6 +338,20 @@ export default function EditableTable(props: any) {
               <Grid item xs={12} sm={3}>
                 <TextField
                   required
+                  id="jobCode"
+                  name="jobCode"
+                  label="Job Code No:"
+                  fullWidth
+                  autoComplete="jobCode"
+                  variant="outlined"
+                  defaultValue={dialogJobCodeNo}
+                  value={dialogJobCodeNo}
+                  onInput={handleJobCodeNo}
+                />
+              </Grid>
+              <Grid item xs={12} sm={3}>
+                <TextField
+                  required
                   id="sampleID"
                   name="sampleID"
                   label="Sample ID:"
