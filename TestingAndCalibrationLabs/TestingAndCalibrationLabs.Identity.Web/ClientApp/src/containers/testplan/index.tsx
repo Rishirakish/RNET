@@ -9,90 +9,19 @@ import Header from "../../components/header";
 import IAppState from "../../stores/common/state";
 
 const columns = [
-  {
-    title: "Sample Type",
-    field: "sampleType",
-  },
-  {
-    title: "Sample Details",
-    field: "sampleDetails",
-  },
-  {
-    title: "Date of TP",
-    field: "dateTp",
-  },
-  {
-    title: "Job Code No",
-    field: "jobCodeNo",
-  },
-  {
-    title: "Sample Id",
-    field: "sampleId",
-  },
-  {
-    title: "Number of Samples/Quantity",
-    field: "quantity",
-  },
-  {
-    title: "Test Name",
-    field: "TestName",
-  },
+  { title: "Sample Type", field: "sampleType" },
+  { title: "Sample Details", field: "sampleDetails" },
+  { title: "Date of TP", field: "dateTp" },
+  { title: "Job Code No", field: "jobCodeNo" },
+  { title: "Sample Id", field: "sampleId" },
+  { title: "Number of Samples/Quantity", field: "quantity" },
+  { title: "Test Name", field: "TestName" },
   { title: "Test Method", field: "TestMethod" },
   { title: "Person Authorized", field: "PersonAuthorized" },
   { title: "Received On", field: "ReceivedOn", type: "date" },
   { title: "Targeted On", field: "TargetedOn", type: "date" },
   { title: "Completed On", field: "CompletedOn", type: "date" },
   { title: "Remarks", field: "Remarks" },
-];
-
-const data = [
-  {
-    sampleType: "testing sample",
-    TestName: "Material test 1",
-    TestMethod: "Material Strength",
-    PersonAuthorized: "Rishi",
-    ReceivedOn: "6/23/2020",
-    TargetedOn: "7/23/2020",
-    CompletedOn: "8/23/2020",
-    Remarks: "Some comments or information",
-    sampleDetails: "NA",
-    dateTp: "8/23/2020",
-    jobCodeNo: "5345",
-    sampleId: "45345",
-    quantity: "10",
-  },
-  {
-    sampleType: "testing sample",
-
-    TestName: "Material test 2",
-    TestMethod: "Humidity Amount",
-    PersonAuthorized: "Sanjay",
-    ReceivedOn: "5/23/2020",
-    TargetedOn: "6/23/2020",
-    CompletedOn: "8/23/2020",
-    Remarks: "Some comments or information",
-    sampleDetails: "NA",
-    dateTp: "8/23/2020",
-    jobCodeNo: "5345",
-    sampleId: "45345",
-    quantity: "10",
-  },
-  {
-    sampleType: "testing sample",
-
-    TestName: "Material test 3",
-    TestMethod: "Material Strength",
-    PersonAuthorized: "Rishi",
-    ReceivedOn: "6/23/2020",
-    TargetedOn: "7/23/2020",
-    CompletedOn: "8/23/2020",
-    Remarks: "Some comments or information",
-    sampleDetails: "NA",
-    dateTp: "8/23/2020",
-    jobCodeNo: "5345",
-    sampleId: "45345",
-    quantity: "10",
-  },
 ];
 
 class TestPlan extends React.Component<any, any> {
@@ -126,7 +55,7 @@ class TestPlan extends React.Component<any, any> {
         </Grid>
         <br />
         {/* <TestPlanList /> */}
-        <EditableTable title="Test Plan" columns={columns} data={data} />
+        <EditableTable title="Test Plan" columns={columns}/>
         <br />
       </React.Fragment>
     );

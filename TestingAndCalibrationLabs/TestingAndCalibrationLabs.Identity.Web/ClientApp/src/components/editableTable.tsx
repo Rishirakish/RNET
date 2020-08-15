@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import MaterialTable from "material-table";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -20,23 +20,178 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import { Dialog, DialogTitle, DialogContent, DialogActions } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
 
 type props = {
   title?: string;
   columns?: any;
-  data?: any;
 };
 
+const data = [
+  {
+    sampleType: "testing sample",
+    TestName: "Material test 1",
+    TestMethod: "Material Strength",
+    PersonAuthorized: "Rishi",
+    ReceivedOn: "6/23/2020",
+    TargetedOn: "7/23/2020",
+    CompletedOn: "8/23/2020",
+    Remarks: "Some comments or information",
+    sampleDetails: "NA",
+    dateTp: "8/23/2020",
+    jobCodeNo: "5345",
+    sampleId: "45345",
+    quantity: "10",
+  },
+  {
+    sampleType: "testing sample",
+    TestName: "Material test 2",
+    TestMethod: "Humidity Amount",
+    PersonAuthorized: "Sanjay",
+    ReceivedOn: "5/23/2020",
+    TargetedOn: "6/23/2020",
+    CompletedOn: "8/23/2020",
+    Remarks: "Some comments or information",
+    sampleDetails: "NA",
+    dateTp: "8/23/2020",
+    jobCodeNo: "5345",
+    sampleId: "45345",
+    quantity: "10",
+  },
+  {
+    sampleType: "testing sample",
+    TestName: "Material test 3",
+    TestMethod: "Material Strength",
+    PersonAuthorized: "Rishi",
+    ReceivedOn: "6/23/2020",
+    TargetedOn: "7/23/2020",
+    CompletedOn: "8/23/2020",
+    Remarks: "Some comments or information",
+    sampleDetails: "NA",
+    dateTp: "8/23/2020",
+    jobCodeNo: "5345",
+    sampleId: "45345",
+    quantity: "10",
+  },
+];
+
 export default function EditableTable(props: any) {
-  const [state, setState] = React.useState({
-    data: props.data,
-  });
+  const [state, setState] = React.useState(data);
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
+  const [dialogSampleType, setDialogSampleType] = React.useState("");
+  const [dialogSampleDetails, setDialogSampleDetails] = React.useState("");
+  const [dialogDateOfTp, setDialogDateOfTp] = React.useState("");
+  const [dialogJobCodeNo, setDialogJobCodeNo] = React.useState("");
+  const [dialogSampleId, setDialogSampleId] = React.useState("");
+  const [dialogQuantity, setDialogQuantity] = React.useState("");
+  const [dialogTestName, setDialogTestName] = React.useState("");
+  const [dialogTestMethod, setDialogTestMethod] = React.useState("");
+  const [dialogPersonAuthorized, setDialogPersonAuthorized] = React.useState("");
+  const [dialogRecievedOn, setDialogRecievedOn] = React.useState("");
+  const [dialogTargetedOn, setDialogTargetedOn] = React.useState("");
+  const [dialogCompletedOn, setDialogCompletedOn] = React.useState("");
+  const [dialogRemarks, setDialogRemarks] = React.useState("");
   
   const handleDialogClose = (event: any) => {
     setIsDialogOpen(false);
   };
+
+  const handleSampleType = (event: any) => {
+    setDialogSampleType(event.target.value);
+  };
+
+  const handleSampleDetails = (event: any) => {
+    setDialogSampleDetails(event.target.value);
+  };
+
+  const handleDateOfTp = (event: any) => {
+    setDialogDateOfTp(event.target.value);
+  };
+
+  const handleJobCodeNo = (event: any) => {
+    setDialogJobCodeNo(event.target.value);
+  };
+
+  const handleSampleId = (event: any) => {
+    setDialogSampleId(event.target.value);
+  };
+
+  const handleQuantity = (event: any) => {
+    setDialogQuantity(event.target.value);
+  };
+
+  const handleTestName = (event: any) => {
+    setDialogTestName(event.target.value);
+  };
+
+  const handleTestMethod = (event: any) => {
+    setDialogTestMethod(event.target.value);
+  };
+
+  const handlePersonAuthorized = (event: any) => {
+    setDialogPersonAuthorized(event.target.value);
+  };
+
+  const handleRecievedOn = (event: any) => {
+    setDialogRecievedOn(event.target.value);
+  };
+
+  const handleTargetedOn = (event: any) => {
+    setDialogTargetedOn(event.target.value);
+  };
+
+  const handleCompletedOn = (event: any) => {
+    setDialogCompletedOn(event.target.value);
+  };
+
+  const handleRemarks = (event: any) => {
+    setDialogRemarks(event.target.value);
+  };
+
+  const handleAddNewRow = (event: any) => {
+    if (!dialogSampleType || !dialogSampleDetails || !dialogDateOfTp || !dialogJobCodeNo || !dialogSampleId || !dialogQuantity || !dialogTestName || !dialogTestMethod || !dialogPersonAuthorized || !dialogRecievedOn || !dialogTargetedOn || !dialogCompletedOn || !dialogRemarks) return;
+    setState(
+      [{ sampleType: dialogSampleType, 
+         sampleDetails: dialogSampleDetails,
+         dateTp: dialogDateOfTp,
+         jobCodeNo: dialogJobCodeNo,
+         sampleId: dialogSampleId,
+         quantity: dialogQuantity,
+         TestName: dialogTestName,
+         TestMethod: dialogTestMethod,
+         PersonAuthorized: dialogPersonAuthorized,
+         ReceivedOn: dialogRecievedOn,
+         TargetedOn: dialogTargetedOn,
+         CompletedOn: dialogCompletedOn,
+         Remarks: dialogRemarks }, ...data]
+    );
+  };
+
+  useEffect(
+    () => {
+      if (isDialogOpen) {
+        setIsDialogOpen(false);
+      }
+    },
+    [state]
+  );
+
+  useEffect(() => {
+    if (!isDialogOpen) {
+      setDialogSampleType("");
+      setDialogSampleDetails("");
+      setDialogDateOfTp("");
+      setDialogJobCodeNo("");
+      setDialogSampleId("");
+      setDialogQuantity("");
+      setDialogTestName("");
+      setDialogTestMethod("");
+      setDialogPersonAuthorized("");
+      setDialogRecievedOn("");
+      setDialogTargetedOn("");
+      setDialogCompletedOn("");
+      setDialogRemarks("");
+    }
+  }, [isDialogOpen]);
 
   const actions = [
     {
@@ -45,6 +200,7 @@ export default function EditableTable(props: any) {
       isFreeAction: true,
       onClick: (event: any, rowData: any) => {
         setIsDialogOpen(true);
+
       }
     },
     {
@@ -59,7 +215,7 @@ export default function EditableTable(props: any) {
   return (
       <Fragment>
         <MaterialTable
-          data={props.data}
+          data={state}
           columns={props.columns}
           actions={actions}
           title={props.title}
@@ -109,11 +265,11 @@ export default function EditableTable(props: any) {
             new Promise((resolve) => {
               setTimeout(() => {
                 resolve();
-                setState((prevState) => {
-                  const data = [...prevState.data];
-                  data.splice(data.indexOf(oldData), 1);
-                  return { ...prevState, data };
-                });
+                // setState((prevState) => {
+                //   const data = [...prevState.data];
+                //   data.splice(data.indexOf(oldData), 1);
+                //   return { ...prevState, data };
+                // });
               }, 600);
             }),
           }}
@@ -142,6 +298,9 @@ export default function EditableTable(props: any) {
                   fullWidth
                   autoComplete="Sample Type"
                   variant="outlined"
+                  defaultValue={dialogSampleType}
+                  value={dialogSampleType}
+                  onInput={handleSampleType}
                 />
               </Grid>
               <Grid item xs={12} sm={9}>
@@ -153,6 +312,9 @@ export default function EditableTable(props: any) {
                   fullWidth
                   autoComplete="Sample Details"
                   variant="outlined"
+                  defaultValue={dialogSampleDetails}
+                  value={dialogSampleDetails}
+                  onInput={handleSampleDetails}
                 />
               </Grid>
               <Grid item xs={12} sm={3}>
@@ -166,17 +328,11 @@ export default function EditableTable(props: any) {
                   type="date"
                   defaultValue="2017-05-24"
                   variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={12} sm={3}>
-                <TextField
-                  required
-                  id="jobCode"
-                  name="jobCode"
-                  label="Job Code No:"
-                  fullWidth
-                  autoComplete="jobCode"
-                  variant="outlined"
+                  value={dialogDateOfTp}
+                  onInput={handleDateOfTp}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={3}>
@@ -188,6 +344,9 @@ export default function EditableTable(props: any) {
                   fullWidth
                   autoComplete="sampleID"
                   variant="outlined"
+                  defaultValue={dialogSampleId}
+                  value={dialogSampleId}
+                  onInput={handleSampleId}
                 />
               </Grid>
               <Grid item xs={12} sm={3}>
@@ -199,6 +358,9 @@ export default function EditableTable(props: any) {
                   fullWidth
                   autoComplete="sampleNo"
                   variant="outlined"
+                  defaultValue={dialogQuantity}
+                  value={dialogQuantity}
+                  onInput={handleQuantity}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -210,6 +372,9 @@ export default function EditableTable(props: any) {
                   fullWidth
                   autoComplete="testName"
                   variant="outlined"
+                  defaultValue={dialogTestName}
+                  value={dialogTestName}
+                  onInput={handleTestName}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -221,6 +386,9 @@ export default function EditableTable(props: any) {
                   fullWidth
                   autoComplete="testMethod"
                   variant="outlined"
+                  defaultValue={dialogTestMethod}
+                  value={dialogTestMethod}
+                  onInput={handleTestMethod}
                 />
               </Grid>
               <Grid item xs={12} sm={3}>
@@ -232,6 +400,9 @@ export default function EditableTable(props: any) {
                   fullWidth
                   autoComplete="personAuthorised"
                   variant="outlined"
+                  defaultValue={dialogPersonAuthorized}
+                  value={dialogPersonAuthorized}
+                  onInput={handlePersonAuthorized}
                 />
               </Grid>
               <Grid item xs={12} sm={3}>
@@ -244,7 +415,12 @@ export default function EditableTable(props: any) {
                   autoComplete="recievedOn"
                   type="date"
                   defaultValue="2017-05-24"
-                  variant="outlined"
+                  variant="outlined"                  
+                  value={dialogRecievedOn}
+                  onInput={handleRecievedOn}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={3}>
@@ -258,6 +434,11 @@ export default function EditableTable(props: any) {
                   type="date"
                   defaultValue="2017-05-24"
                   variant="outlined"
+                  value={dialogTargetedOn}
+                  onInput={handleTargetedOn}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={3}>
@@ -271,6 +452,11 @@ export default function EditableTable(props: any) {
                   type="date"
                   defaultValue="2017-05-24"
                   variant="outlined"
+                  value={dialogCompletedOn}
+                  onInput={handleCompletedOn}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </Grid>
               <Grid item xs={12} sm={12}>
@@ -282,6 +468,9 @@ export default function EditableTable(props: any) {
                   fullWidth
                   autoComplete="remarks"
                   variant="outlined"
+                  defaultValue={dialogRemarks}
+                  value={dialogRemarks}
+                  onInput={handleRemarks}
                 />
               </Grid>
             </Grid>
@@ -292,11 +481,9 @@ export default function EditableTable(props: any) {
                 Cancel
               </Button>
               &nbsp; &nbsp;
-              <NavLink to="/testplan" style={{ textDecoration: "none" }}>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={handleAddNewRow}>
                   Save
                 </Button>
-              </NavLink>
             </div>
           </DialogActions>
         </Dialog>
