@@ -2,16 +2,19 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import React from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 
 import Header from "../../components/header";
 import IAppState from "../../stores/common/state";
 import Button from "@material-ui/core/Button";
 import { NavLink } from "react-router-dom";
-import EditableTable from "../../components/editableTable";
+import JobReviewEditableTable from "../../components/jobReviewEditableTable";
 import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
+import { PDFViewer } from '@react-pdf/renderer';
+import Invoice from "../../components/Invoice";
+import ReactPDF from '@react-pdf/renderer';
 // Import React FilePond
 import { FilePond, File, registerPlugin } from "react-filepond";
 
@@ -86,8 +89,63 @@ class JobReview extends React.Component<any, any> {
     super(props);
     this.state = {
       searchList: searchList,
+      jobSerialNo: "",
+      departmentSendingSample: "",
+      customerName: "",
+      issueTo: "",
+      receivedOn: "",
+      jobOrderNo: "",
+      contactPersonName: "",
+      mobileNumber: "",
+      testReportReleaseDate: "",
+      anyOtherSpecificRequirement: "",
+      testingMaterial: "",
     };
-  }
+  };
+
+  handleJobSerialNo = (event: any) => {
+    this.setState({jobSerialNo: event.target.value});
+  };
+
+  handleDepartmentSendingSample = (event: any) => {
+    this.setState({departmentSendingSample: event.target.value});
+  };
+
+  handleCustomerName = (event: any) => {
+    this.setState({customerName: event.target.value});
+  };
+
+  handleIssueTo = (event: any) => {
+    this.setState({issueTo: event.target.value});
+  };
+
+  handleReceivedOn = (event: any) => {
+    this.setState({receivedOn: event.target.value});
+  };
+
+  handleJobOrderNo = (event: any) => {
+    this.setState({jobOrderNo: event.target.value});
+  };
+
+  handleContactPersonName = (event: any) => {
+    this.setState({contactPersonName: event.target.value});
+  };
+
+  handleMobileNumber = (event: any) => {
+    this.setState({mobileNumber: event.target.value});
+  };
+
+  handleTestReportReleaseDate = (event: any) => {
+    this.setState({testReportReleaseDate: event.target.value});
+  };
+
+  handleAnyOtherSpecificRequirement = (event: any) => {
+    this.setState({anyOtherSpecificRequirement: event.target.value});
+  };
+
+  handleTestingMaterial = (event: any) => {
+    this.setState({testingMaterial: event.target.value});
+  };
 
   handleDelete = (data: any) => {
     console.info("You clicked the delete icon.");
@@ -118,6 +176,7 @@ class JobReview extends React.Component<any, any> {
               fullWidth
               autoComplete="Job Serial No"
               variant="outlined"
+              onInput={this.handleJobSerialNo}
             />
             {/* <Typography variant="h6">Job Serial No: QWERTASDFG</Typography> */}
           </Grid>
@@ -131,7 +190,13 @@ class JobReview extends React.Component<any, any> {
             direction="row"
           >
             <NavLink to="/jobReviewForm" style={{ textDecoration: "none" }}>
-              <Button variant="contained" color="primary">
+              <Button variant="contained" color="primary" onClick={() => (
+                    <Fragment>
+                        <PDFViewer width="1000" height="600" className="app" >
+                            <Invoice jobSerialNo={this.state.jobSerialNo}/>
+                        </PDFViewer>
+                    </Fragment>
+                )}>
                 Submit & Print Receipt
               </Button>
             </NavLink>
@@ -146,6 +211,7 @@ class JobReview extends React.Component<any, any> {
               fullWidth
               autoComplete="departmentSendingSample"
               variant="outlined"
+              onInput={this.handleDepartmentSendingSample}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -159,6 +225,7 @@ class JobReview extends React.Component<any, any> {
               variant="outlined"
               multiline
               rowsMax={3}
+              onInput={this.handleCustomerName}
             />
           </Grid>
 
@@ -173,6 +240,7 @@ class JobReview extends React.Component<any, any> {
               variant="outlined"
               multiline
               rowsMax={3}
+              onInput={this.handleIssueTo}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -195,6 +263,7 @@ class JobReview extends React.Component<any, any> {
               fullWidth
               autoComplete="received On:"
               variant="outlined"
+              onInput={this.handleReceivedOn}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -206,6 +275,7 @@ class JobReview extends React.Component<any, any> {
               fullWidth
               autoComplete="jobOrderNo"
               variant="outlined"
+              onInput={this.handleJobOrderNo}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -217,6 +287,7 @@ class JobReview extends React.Component<any, any> {
               fullWidth
               autoComplete="Contact Person Name"
               variant="outlined"
+              onInput={this.handleContactPersonName}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -228,6 +299,7 @@ class JobReview extends React.Component<any, any> {
               fullWidth
               autoComplete="Mobile Number"
               variant="outlined"
+              onInput={this.handleMobileNumber}
             />
           </Grid>
           <Grid item xs={12} sm={3}>
@@ -241,6 +313,7 @@ class JobReview extends React.Component<any, any> {
               type="date"
               defaultValue="2017-05-24"
               variant="outlined"
+              onInput={this.handleTestReportReleaseDate}
             />
           </Grid>
           <Grid item xs={12} sm={9}>
@@ -254,6 +327,7 @@ class JobReview extends React.Component<any, any> {
               variant="outlined"
               multiline
               rowsMax={3}
+              onInput={this.handleAnyOtherSpecificRequirement}
             />
           </Grid>
 
@@ -317,10 +391,9 @@ class JobReview extends React.Component<any, any> {
           </Grid>
         </Grid>
         <br />
-        <EditableTable
+        <JobReviewEditableTable
           title="Sample Receipt cum Job Review Form"
           columns={columns}
-          data={data}
         />
         <ul>
           <li>
