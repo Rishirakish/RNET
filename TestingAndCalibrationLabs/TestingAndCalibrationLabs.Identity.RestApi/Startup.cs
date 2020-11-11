@@ -17,6 +17,7 @@ using TestingAndCalibrationLabs.Identity.Core;
 using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
 using TestingAndCalibrationLabs.Identity.Core.Service;
 using TestingAndCalibrationLabs.Identity.Infrastructure;
+using TestingAndCalibrationLabs.Identity.RestApi.CustomHandlers;
 
 namespace TestingAndCalibrationLabs.Identity.RestApi
 {
@@ -42,9 +43,12 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
             services.AddScoped<BaseDbContext, ApplicationDbContext>();
 
             //Identity
-            services.AddIdentity<User, Role>()
+            services.AddIdentity<User, Role>(options =>
+                {
+                    options.Tokens.AuthenticatorTokenProvider = "CustomTokenProvider";
+                })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+                .AddTokenProvider<CustomTokenProvider<User>>("CustomTokenProvider");
 
             // Unit of work and repository setup
             services.AddScoped<IUnitOfWork<SampleEntity>, UnitOfWork<SampleEntity>>();
@@ -55,6 +59,11 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
 
             // Mappers
             services.AddAutoMapper(typeof(MappingProfile));
+
+            //
+            services.AddAuthentication("Basic").
+                AddScheme<BasicAuthenticationOptions, CustomAuthenticationHandler>("Basic",null);
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

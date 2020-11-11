@@ -1,8 +1,11 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.HttpSys;
 using TestingAndCalibrationLabs.Identity.Core;
 using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
 using TestingAndCalibrationLabs.Identity.Core.Service;
+using TestingAndCalibrationLabs.Identity.Infrastructure;
 using TestingAndCalibrationLabs.Identity.RestApi.DTO;
 
 namespace TestingAndCalibrationLabs.Identity.RestApi.Controllers
@@ -20,6 +23,7 @@ namespace TestingAndCalibrationLabs.Identity.RestApi.Controllers
             _sampleService = sampleService;
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("create")]
         public async Task<ActionResult<string>> Create(UserDTO user)
@@ -28,12 +32,23 @@ namespace TestingAndCalibrationLabs.Identity.RestApi.Controllers
             return result;
         }
 
+        //[Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost]
         [Route("login")]
-        public async Task<ActionResult<bool>> Login(LoginModel login)
+        public async Task<ActionResult<string>> Login(LoginModel login)
         {
             var result = await _userService.UserLogin(login.UserName, login.Password);
             return result;
         }
+
+        [Authorize(AuthenticationSchemes = "Basic")]
+        [HttpPost]
+        [Route("logout")]
+        public async Task<bool> Logout(LogoutModel logout)
+        {
+            var result = await _userService.UserLogout(logout.UserId, logout.Token);
+            return result;
+        }
+
     }
 }
