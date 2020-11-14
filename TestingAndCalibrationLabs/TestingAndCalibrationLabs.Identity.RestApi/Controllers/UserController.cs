@@ -1,18 +1,17 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Server.HttpSys;
 using TestingAndCalibrationLabs.Identity.Core;
-using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
+using TestingAndCalibrationLabs.Identity.Core.Domain;
 using TestingAndCalibrationLabs.Identity.Core.Service;
-using TestingAndCalibrationLabs.Identity.Infrastructure;
+using TestingAndCalibrationLabs.Identity.RestApi.Controllers.Base;
 using TestingAndCalibrationLabs.Identity.RestApi.DTO;
 
 namespace TestingAndCalibrationLabs.Identity.RestApi.Controllers
 {
     [ApiController]
     [Route("api/user")]
-    public class UserController : ControllerBase
+    public class UserController : ApiController
     {
         private readonly IUserService _userService;
         private readonly ISampleService _sampleService;
@@ -35,7 +34,7 @@ namespace TestingAndCalibrationLabs.Identity.RestApi.Controllers
         //[Authorize(AuthenticationSchemes = "Basic")]
         [HttpPost]
         [Route("login")]
-        public async Task<ActionResult<string>> Login(LoginModel login)
+        public async Task<ActionResult<SessionContext>> Login(LoginModel login)
         {
             var result = await _userService.UserLogin(login.UserName, login.Password);
             return result;

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
+using TestingAndCalibrationLabs.Identity.Core.Domain;
 
 namespace TestingAndCalibrationLabs.Identity.Core.Service
 {
@@ -28,26 +28,36 @@ namespace TestingAndCalibrationLabs.Identity.Core.Service
             return res.Succeeded ? user.Id : null;
         }
 
-        public async Task<string> UserLogin(string username, string password)
+        public async Task<SessionContext> UserLogin(string username, string password)
         {
             var res = await _signInManager.PasswordSignInAsync(username, password, false, false).ConfigureAwait(true);
-            string usertoken = null;
+            SessionContext usertoken = null;
             if (res.Succeeded)
             {
                 var userP = await _userManager.FindByNameAsync(username);
                 var token = await _userManager.GenerateUserTokenAsync(userP, "CustomTokenProvider", "Login").ConfigureAwait(true);
-                var vool1 = _userManager.SupportsUserAuthenticationTokens;
+                // Experimenting some methods
+
+                /*var vool1 = _userManager.SupportsUserAuthenticationTokens;
                 var userValidator = new UserValidator<User>();
                 var bb = ValidateUserName(_userManager, userP, new List<IdentityError>());
-                var aaa = await userValidator.ValidateAsync(_userManager, userP);
-                var abc = await _userManager.SetAuthenticationTokenAsync(userP, "CustomTokenProvider", username, token).ConfigureAwait(true);
-                if (abc.Succeeded)
-                {
-                    var dict = new Dictionary<string, string> {{userP.Id, token}};
+                var aaa = await userValidator.ValidateAsync(_userManager, userP);*/
+
+                //Save token in database
+                //var abc = await _userManager.SetAuthenticationTokenAsync(userP, "CustomTokenProvider", username, token).ConfigureAwait(true);
+                /*if (abc.Succeeded)
+                {*/
+                    usertoken = new SessionContext()
+                    {
+                        SessionToken =  token,
+                        UserID = userP.Id
+                    };
+                    //Users before to have userid and toke before jwt was implemented
+                    /*var dict = new Dictionary<string, string> {{userP.Id, token}};
                     string json = JsonConvert.SerializeObject(dict, Formatting.None);
                     byte[] bytes = Encoding.UTF8.GetBytes(json);
-                    usertoken = Convert.ToBase64String(bytes);
-                }
+                    usertoken = Convert.ToBase64String(bytes);*/
+                //}
             }
 
             return usertoken;

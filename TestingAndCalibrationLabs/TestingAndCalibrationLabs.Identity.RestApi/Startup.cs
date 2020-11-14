@@ -1,20 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using TestingAndCalibrationLabs.Identity.Core;
 using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
+using TestingAndCalibrationLabs.Identity.Core.Domain;
 using TestingAndCalibrationLabs.Identity.Core.Service;
 using TestingAndCalibrationLabs.Identity.Infrastructure;
 using TestingAndCalibrationLabs.Identity.RestApi.CustomHandlers;
@@ -34,6 +27,7 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.Configure<AppSettings>(Configuration);
 
             //Add sql
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -56,7 +50,7 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
             //services
             services.AddScoped<ISampleService, SampleService>();
             services.AddScoped<IUserService, UserService>();
-
+            services.AddScoped<ICertificateManager, CertificateManager>();
             // Mappers
             services.AddAutoMapper(typeof(MappingProfile));
 
