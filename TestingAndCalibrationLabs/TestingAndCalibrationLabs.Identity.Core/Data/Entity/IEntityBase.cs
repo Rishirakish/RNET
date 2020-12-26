@@ -4,4 +4,8 @@
     {
         int Id { get; }
     }
+    public interface IRepositoryBase
+    {
+        int Id { get; }
+    }
 }

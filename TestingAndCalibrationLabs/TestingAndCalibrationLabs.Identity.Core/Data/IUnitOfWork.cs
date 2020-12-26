@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 
 namespace TestingAndCalibrationLabs.Identity.Core
 {
-    public interface IUnitOfWork<TEntity>: IDisposable where TEntity : class, IEntityBase //, DbContext
+    public interface IUnitOfWork: IDisposable //, DbContext
     {
         Task<int> SaveChangesAsync();
 
-        IRepository<TEntity> Repository { get; }
+        IRepository<TEntity> GetRepository<TEntity>() where TEntity : class, IEntityBase;
+
+        //IRepository<TEntity> Repository { get; }
     }
 }

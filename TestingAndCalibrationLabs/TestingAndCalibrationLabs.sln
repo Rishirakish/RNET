@@ -35,15 +35,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Search", "Search", "{7103F8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.FrontOffice.RestApi", "TestingAndCalibrationLabs.FrontOffice.RestApi\TestingAndCalibrationLabs.FrontOffice.RestApi.csproj", "{1FF49CF7-1B3D-449D-9365-85881E740C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.Identity.Core", "TestingAndCalibrationLabs.Identity.Core\TestingAndCalibrationLabs.Identity.Core.csproj", "{3B66ABA6-36CC-4432-9EB1-A9AD66CB9F43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.Identity.Core", "TestingAndCalibrationLabs.Identity.Core\TestingAndCalibrationLabs.Identity.Core.csproj", "{3B66ABA6-36CC-4432-9EB1-A9AD66CB9F43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.Identity.Infrastructure", "TestingAndCalibrationLabs.Identity.Infrastructure\TestingAndCalibrationLabs.Identity.Infrastructure.csproj", "{05F3EE35-FB67-4CF3-A602-5D7BCC4577F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.Identity.Infrastructure", "TestingAndCalibrationLabs.Identity.Infrastructure\TestingAndCalibrationLabs.Identity.Infrastructure.csproj", "{05F3EE35-FB67-4CF3-A602-5D7BCC4577F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.Identity.SharedKernel", "TestingAndCalibrationLabs.Identity.SharedKernel\TestingAndCalibrationLabs.Identity.SharedKernel.csproj", "{3E1E2569-A4B3-4197-B649-EC02AB4FAB9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.Identity.SharedKernel", "TestingAndCalibrationLabs.Identity.SharedKernel\TestingAndCalibrationLabs.Identity.SharedKernel.csproj", "{3E1E2569-A4B3-4197-B649-EC02AB4FAB9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.Identity.RestApi", "TestingAndCalibrationLabs.Identity.RestApi\TestingAndCalibrationLabs.Identity.RestApi.csproj", "{A147BBE5-F081-4D4A-BC80-86C92E37A7B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.Identity.RestApi", "TestingAndCalibrationLabs.Identity.RestApi\TestingAndCalibrationLabs.Identity.RestApi.csproj", "{A147BBE5-F081-4D4A-BC80-86C92E37A7B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.Identity.UI", "TestingAndCalibrationLabs.Identity.Web\TestingAndCalibrationLabs.Identity.UI.csproj", "{46CE15C2-48F7-41CA-BD50-2C03F357B508}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.Identity.UI", "TestingAndCalibrationLabs.Identity.Web\TestingAndCalibrationLabs.Identity.UI.csproj", "{46CE15C2-48F7-41CA-BD50-2C03F357B508}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{7F409884-D45B-44C1-90F3-8A6091DF5F82}"
 EndProject
@@ -51,11 +51,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{6313687E-BF0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D6F49C2A-F526-440C-B8FF-CB41D8FE5BA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.Identity.FunctionalTests", "TestingAndCalibrationLabs.Identity.FunctionalTests\TestingAndCalibrationLabs.Identity.FunctionalTests.csproj", "{259AD2F3-EB2D-4DF2-A883-492596E2611B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.Identity.FunctionalTests", "TestingAndCalibrationLabs.Identity.FunctionalTests\TestingAndCalibrationLabs.Identity.FunctionalTests.csproj", "{259AD2F3-EB2D-4DF2-A883-492596E2611B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.Identity.IntegrationTests", "TestingAndCalibrationLabs.Identity.IntegrationTests\TestingAndCalibrationLabs.Identity.IntegrationTests.csproj", "{1BD4EEDC-53DC-451B-824F-BD34A06F93D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.Identity.IntegrationTests", "TestingAndCalibrationLabs.Identity.IntegrationTests\TestingAndCalibrationLabs.Identity.IntegrationTests.csproj", "{1BD4EEDC-53DC-451B-824F-BD34A06F93D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.Identity.UnitTests", "TestingAndCalibrationLabs.Identity.UnitTests\TestingAndCalibrationLabs.Identity.UnitTests.csproj", "{B772E4AA-3FAC-4EB3-8288-BF888829FE9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestingAndCalibrationLabs.Identity.UnitTests", "TestingAndCalibrationLabs.Identity.UnitTests\TestingAndCalibrationLabs.Identity.UnitTests.csproj", "{B772E4AA-3FAC-4EB3-8288-BF888829FE9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingAndCalibrationLabs.FrontOffice.Api", "..\..\..\..\..\Archer_Main\RSA.Archer.Mobile.Api\TestingAndCalibrationLabs.FrontOffice.Api.csproj", "{47D88BD7-1DF1-4A89-B00F-F63614FAFAF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +129,10 @@ Global
 		{B772E4AA-3FAC-4EB3-8288-BF888829FE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B772E4AA-3FAC-4EB3-8288-BF888829FE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B772E4AA-3FAC-4EB3-8288-BF888829FE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47D88BD7-1DF1-4A89-B00F-F63614FAFAF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47D88BD7-1DF1-4A89-B00F-F63614FAFAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47D88BD7-1DF1-4A89-B00F-F63614FAFAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47D88BD7-1DF1-4A89-B00F-F63614FAFAF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -158,6 +164,7 @@ Global
 		{259AD2F3-EB2D-4DF2-A883-492596E2611B} = {D6F49C2A-F526-440C-B8FF-CB41D8FE5BA5}
 		{1BD4EEDC-53DC-451B-824F-BD34A06F93D7} = {D6F49C2A-F526-440C-B8FF-CB41D8FE5BA5}
 		{B772E4AA-3FAC-4EB3-8288-BF888829FE9D} = {D6F49C2A-F526-440C-B8FF-CB41D8FE5BA5}
+		{47D88BD7-1DF1-4A89-B00F-F63614FAFAF3} = {7F409884-D45B-44C1-90F3-8A6091DF5F82}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2BF2D529-3136-49FD-804D-869A37889C6C}

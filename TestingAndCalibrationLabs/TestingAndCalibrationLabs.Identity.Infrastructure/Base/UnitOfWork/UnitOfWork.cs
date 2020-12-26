@@ -8,19 +8,24 @@ using TestingAndCalibrationLabs.Identity.Core;
 
 namespace TestingAndCalibrationLabs.Identity.Infrastructure
 {
-    public class UnitOfWork<TEntity> : Disposable, IUnitOfWork<TEntity> where TEntity : class, IEntityBase
+    public class UnitOfWork : Disposable, IUnitOfWork
     {
         protected readonly BaseDbContext _dbContext;
-        private Repository<TEntity> _repository;
+        //private Repository<TEntity> _repository;
         
         public UnitOfWork(BaseDbContext context)
         {
             _dbContext = context;
         }
 
-        public IRepository<TEntity> Repository
+        //public IRepository<TEntity> Repository
+        //{
+        //    get { return _repository ??= new Repository<TEntity>(_dbContext); }
+        //}
+
+        public IRepository<TEntity> GetRepository<TEntity>() where TEntity : class, IEntityBase
         {
-            get { return _repository ??= new Repository<TEntity>(_dbContext); }
+            return new Repository<TEntity>(_dbContext);
         }
 
         public virtual async Task<int> SaveChangesAsync()

@@ -47,14 +47,16 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
                 .AddDefaultTokenProviders();
 
             // Unit of work and repository setup
-            services.AddScoped<IUnitOfWork<SampleEntity>, UnitOfWork<SampleEntity>>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             //services
             services.AddScoped<ISampleService, SampleService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IConventionalAuthenticationService, ConventionalAuthenticationService>();
 
             // Mappers
             services.AddAutoMapper(typeof(MappingProfile));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
