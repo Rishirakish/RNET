@@ -3,24 +3,25 @@ using System.Threading.Tasks;
 
 namespace TestingAndCalibrationLabs.Identity.Core
 {
+    //TODO: Need to remove later
     public class SampleService : ISampleService
     {
-        private readonly IUnitOfWork<SampleEntity> _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
         //TODO: all the service methods should only get the session context not even unitOfWork directly, I.e implement session Handler in API layer.
-        public SampleService(IUnitOfWork<SampleEntity> unitOfWork)
+        public SampleService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
         public async Task<int> Insert(SampleEntity sampleEntity)
         {
-             await _unitOfWork.Repository.Add(sampleEntity);
+             await _unitOfWork.GetRepository<SampleEntity>().Add(sampleEntity);
             return await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<IReadOnlyList<SampleEntity>> Get()
         {
-            return await _unitOfWork.Repository.GetAllAsync().ConfigureAwait(true);
+            return await _unitOfWork.GetRepository< SampleEntity>().GetAllAsync().ConfigureAwait(true);
         }
     }
 }

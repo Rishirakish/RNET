@@ -8,7 +8,8 @@ namespace TestingAndCalibrationLabs.Identity.Core.Service
 {
     public interface IUserService
     {
-        Task<string> CreateUser(User user, string password);
-        Task<bool> UserLogin(string username, string password);
+        Task<bool> RegisterUser(User user, string password);
+        Task<JWTToken> UserLogin(string username, string password);
+        Task<bool> RegisterAdmin(User user, string password);
     }
 }

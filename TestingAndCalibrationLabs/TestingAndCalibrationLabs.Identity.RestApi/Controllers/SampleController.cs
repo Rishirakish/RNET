@@ -8,6 +8,7 @@ using TestingAndCalibrationLabs.Identity.RestApi;
 
 namespace TestingAndCalibrationLabs.Identity.RestApi
 {
+    //TODO: Need to remove later
     [ApiController]
     [Route("[controller]")]
     public class SampleController : ControllerBase

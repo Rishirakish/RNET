@@ -7,5 +7,12 @@ namespace TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity
 {
     public class Role : IdentityRole
     {
+        public Role()
+        {
+        }
+
+        public Role(string roleName) : base(roleName)
+        {
+        }
     }
 }

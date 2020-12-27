@@ -1,22 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using TestingAndCalibrationLabs.Identity.Core;
 using TestingAndCalibrationLabs.Identity.Core.Data.Entity.Identity;
 using TestingAndCalibrationLabs.Identity.Core.Service;
 using TestingAndCalibrationLabs.Identity.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace TestingAndCalibrationLabs.Identity.RestApi
 {
@@ -46,8 +42,30 @@ namespace TestingAndCalibrationLabs.Identity.RestApi
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            // Adding Authentication  
+            services.AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                // Adding Jwt Bearer  
+                .AddJwtBearer(options =>
+                {
+                    options.SaveToken = true;
+                    options.RequireHttpsMetadata = false;
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidAudience = Configuration["JWT:ValidAudience"],
+                        ValidIssuer = Configuration["JWT:ValidIssuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+                    };
+                });
+
             // Unit of work and repository setup
-            services.AddScoped<IUnitOfWork<SampleEntity>, UnitOfWork<SampleEntity>>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             //services
             services.AddScoped<ISampleService, SampleService>();
