@@ -39,7 +39,7 @@ import ViewColumn from '@material-ui/icons/ViewColumn';
 //     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 //   };
 
-export default function testPlanList() {
+export default function TestPlanList() {
   const [state, setState] = React.useState({
         columns: [
       { title: 'Test Name', field: 'TestName' },

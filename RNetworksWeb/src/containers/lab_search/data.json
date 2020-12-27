@@ -1,0 +1,87 @@
+[
+  {
+    "label": "Biological",
+    "tagClassName": "special",
+    "children": [
+      {
+        "label": "Animal Food & Feed",
+        "children": [
+          {
+            "label": "Animal Nutrition Supplements"
+          },
+          {
+            "label": "Cotton seed cake"
+          },
+          {
+            "label": "Dog Food"
+          }
+        ]
+      },
+      {
+        "label": "Antimicrobial Activity Products",
+        "children": [
+          {
+            "label": "Adhesives Glues and Sealant"
+          }
+        ]
+      },
+      {
+        "label": "AYUSH Products",
+        "children": [
+          {
+            "label": "Ayurvedic drugs"
+          },
+          {
+            "label": "Herbal Formulations"
+          },
+          {
+            "label": "Universidad Técnica Latinoamericana"
+          },
+          {
+            "label": "Saint Louis College"
+          },
+          {
+            "label": "Scott Christian University"
+          }
+        ]
+      },
+      {
+        "label": "Utilization Review",
+        "children": [
+          {
+            "label": "University of Minnesota - Twin Cities Campus"
+          },
+          {
+            "label": "Moldova State Agricultural University"
+          },
+          {
+            "label": "Andrews University"
+          },
+          {
+            "label": "Usmanu Danfodiyo University Sokoto"
+          }
+        ]
+      },
+      {
+        "label": "Norton Utilities",
+        "children": [
+          {
+            "label": "Universidad Autónoma del Caribe"
+          },
+          {
+            "label": "National University of Uzbekistan"
+          },
+          {
+            "label": "Ladoke Akintola University of Technology"
+          },
+          {
+            "label": "Kohat University of Science and Technology  (KUST)"
+          },
+          {
+            "label": "Hvanneyri Agricultural University"
+          }
+        ]
+      }
+    ]
+  }
+]
