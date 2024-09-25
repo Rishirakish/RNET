@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
+//import "./App.css";
 import { Provider } from "react-redux";
-import configureStore from "./store";
+//import configureStore from "./store";
 import SignIn from "./components/signin";
 import TestPlan from "./components/testplan"
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
@@ -21,7 +21,7 @@ function App() {
             <Route exact path='/' component={SignIn} />            
             <Route path="/signUp" component={SignUp} />
             <Route path="/testplan" component={TestPlan} />
-            <Route path="/jobReviewForm" component={JobReviewForm} />
+            {/* <Route path="/jobReviewForm" component={JobReviewForm} /> */}
           </Switch>
         </div>
       </div>      

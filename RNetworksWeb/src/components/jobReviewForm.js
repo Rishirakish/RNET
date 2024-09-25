@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function jobReviewForm() {
+export default function JobReviewForm() {
   const classes = useStyles();
   return (
     <React.Fragment>
